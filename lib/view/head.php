@@ -16,7 +16,6 @@
 
 			<!-- Icon -->
 			<link rel="shortcut icon" type="image/png" href="img/icon.png"/>
-			<link rel="shortcut icon" type="image/png" href="img/icon.png"/>
 
 			<!-- Font Ubuntu Mono -->
 			<link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono" rel="stylesheet">
