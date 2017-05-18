@@ -5,6 +5,7 @@
 				<a href="https://twitter.com/CSGOAcedXyz"><i class="fa fa-twitter-square fa-2x text-muted"></i></a>
 				<a href="https://steamcommunity.com/groups/CSGOAced_xyz"><i class="fa fa-steam fa-2x text-muted"></i></a>
 				<a href="https://www.instagram.com/csgoaced.xyz/"><i class="fa fa-instagram fa-2x text-muted"></i></a>
+				<a href="https://github.com/CSGOAced"><i class="fa fa-github fa-2x text-muted"></i></a>
 				<a href="mailto:admin@csgoaced.xyz"><i class="fa fa-envelope-square fa-2x text-muted"></i></a>
 				</p>
 			</div>
