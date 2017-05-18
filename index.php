@@ -1,9 +1,11 @@
+<?php require ("lib/controller/CSGOAcedController.php"); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		<?php require ("lib/view/head.php"); ?>
 	</head>
-	
+
 	<body>
 		<?php require ("lib/view/navbar.php"); ?>
 

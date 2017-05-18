@@ -21,9 +21,25 @@
 						<li>
 							<a href="#">Widthraw</a>
 						</li> 
+						<?php if(!isset($_SESSION['UID'])) { ?>
 						<li>
-							<a href="#"><span class="glyphicon glyphicon-user"></span> Login / Register</a>
+							<a href="?login"><span class="glyphicon glyphicon-user"></span> Login / Register</a>
 						</li>
+						<?php }else{ ?>
+							<li class="dropdown">
+								<a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> <?php echo $steamprofile['personaname'] ?> <span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<?php if($_SESSION['Role'] == "Admin"){ ?>
+										<li><a href="?admin"><span class="glyphicon glyphicon-tower"></span> Admin</a></li>
+									<?php } ?>
+									<li><a href="?history"><span class="glyphicon glyphicon-list-alt"></span> History</a></li>
+									<li><a href="?freecoins"><span class="glyphicon glyphicon-gift"></span> Free Coins</a></li>
+									<li><a href="?tradeurl"><span class="glyphicon glyphicon-sort"></span> Trade URL</a></li>
+									<li><a href="?settings"><span class="glyphicon glyphicon-cog"></span> Settings</a></li>
+									<li><a href="?logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+								</ul>
+							</li>
+						<?php } ?>
 					</ul>
 				</div>
 			</div>
