@@ -1,7 +1,7 @@
 <main>
 	<div class="jumbotron text-center">
 		<h1>CSGO Aced</h1>
-		<p><span class="glyphicon glyphicon-star"></span> From Champions to Champions. Join us and start winning skins!</p>
+		<p><span class="glyphicon glyphicon-star"></span> <?php echo $Vars->Description; ?></p>
 	</div>
 
 	<div class="container">

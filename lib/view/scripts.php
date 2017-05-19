@@ -9,11 +9,11 @@
 <?php
 switch ($GetPage) {
 	case $Page->Deposit: ?>
-		<script type="text/javascript" src="js/cart.js"></script>
+		<script type="text/javascript" src="<?php echo $Link->Website . 'js/cart.js'; ?>"></script>
 		<?php break;
 
 	case $Page->Home:
 	default: ?>
-		<script type="text/javascript" src="js/coinflip.js"></script>
+		<script type="text/javascript" src="<?php echo $Link->Website . 'js/coinflip.js'; ?>"></script>
 		<?php break;
 }

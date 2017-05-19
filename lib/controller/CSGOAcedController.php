@@ -1,15 +1,6 @@
 <?php
 
-$Page = (object) array( 'Home' => 'home',
-						'Deposit' => 'deposit', 
-						'Widthraw' => 'widthraw',
-						'Admin' => 'admin',
-						'History' => 'history',
-						'FreeCoins' => 'freecoins',
-						'TradeURL' => 'tradeurl',
-						'Settings' => 'settings',
-						'Logout' => 'logout');
-
+require ("lib/controller/Config.php");
 require ("lib/SteamAuth/steamauth/steamauth.php");
 
 if(isset($_SESSION['steamid'])) {

@@ -2,20 +2,20 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, minimum-scale=1">
 
-<meta property="og:title" content="CSGO Aced" />
+<meta property="og:title" content="<?php echo $Vars->Name ;?>" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://www.csgoaced.xyz/" />
-<meta property="og:image" content="https://www.csgoaced.xyz/img/logo.png" />
-<meta property="og:description" content="From Champions to Champions. Join us and start winning skins!" />
+<meta property="og:url" content="<?php echo $Link->Website ;?>" />
+<meta property="og:image" content="<?php echo $Link->Website . "img/logo.png" ;?>" />
+<meta property="og:description" content="<?php echo $Vars->Description; ?>" />
 
-<meta name="description" content="From Champions to Champions. Join us and start winning skins!">
-<meta name="keywords" content="CSGO, cs, counter, strike, skins, dragonlore, karambit, aced, ace, bet, beting, gamble, gambling">
+<meta name="description" content="<?php echo $Vars->Description; ?>">
+<meta name="keywords" content="<?php echo $Vars->Keywords; ?>">
 <meta name="author" content="Tiago Severino">
 
-<title>CSGO Aced</title>
+<title><?php echo $Vars->FriendlyURL ;?></title>
 
 <!-- Icon -->
-<link rel="shortcut icon" type="image/png" href="img/icon.png"/>
+<link rel="shortcut icon" type="image/png" href="<?php echo $Link->Website . "img/icon.png" ;?>"/>
 
 <!-- Font Ubuntu Mono -->
 <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono" rel="stylesheet">
@@ -27,4 +27,4 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 <!-- Stylesheet -->
-<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="<?php echo $Link->Website . "css/styles.css" ;?>">
