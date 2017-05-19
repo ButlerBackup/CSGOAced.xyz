@@ -50,75 +50,75 @@ main{
 
 /* Coinflip */
 
-#coin-flip-cont {
+.coin-flip-cont {
 width: 128px;
 height: 128px;	
 top: calc(50% - 100px);
 left: calc(50% - 100px);
 }
 
-#coin {
+.coin {
 
 width: 128px;
 transform-style: preserve-3d;
 }
 
-#coin .front, #coin .back {
+.coin .front, .coin .back {
 position: absolute;
 width: 128px;
 height: 128px;
 }
 
-#coin .front {
+.coin .front {
 transform: translateZ(1px);
 border-radius: 50%;
 background: url(img/avatar1.jpg);
 background-size: 100%;
 }
 
-#coin .back {
+.coin .back {
 transform: translateZ(-1px) rotateY(180deg);
 border-radius: 50%;
 background: url(img/avatar2.jpg);
 background-size: 100%;
 }
 
-#coin.animation900 {
+.coin.animation900 {
 -webkit-animation: rotate900 4s linear forwards; 
 animation: rotate900 4s linear forwards;
 }
 
-#coin.animation1080 {
+.coin.animation1080 {
 -webkit-animation: rotate1080 4s linear forwards; 
 animation: rotate1080 4s linear forwards;
 }
 
-#coin.animation1260 {
+.coin.animation1260 {
 -webkit-animation: rotate1260 4s linear forwards; 
 animation: rotate1260 4s linear forwards;
 }
 
-#coin.animation1440 {
+.coin.animation1440 {
 -webkit-animation: rotate1440 4s linear forwards; 
 animation: rotate1440 4s linear forwards;
 }
 
-#coin.animation1620 {
+.coin.animation1620 {
 -webkit-animation: rotate1620 4s linear forwards; 
 animation: rotate1620 4s linear forwards;
 }
 
-#coin.animation1800 {
+.coin.animation1800 {
 -webkit-animation: rotate1800 4s linear forwards; 
 animation: rotate1800 4s linear forwards;
 }
 
-#coin.animation1980 {
+.coin.animation1980 {
 -webkit-animation: rotate1980 4s linear forwards; 
 animation: rotate1980 4s linear forwards;
 }
 
-#coin.animation2160 {
+.coin.animation2160 {
 -webkit-animation: rotate2160 4s linear forwards; 
 animation: rotate2160 4s linear forwards;
 }

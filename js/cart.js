@@ -40,7 +40,6 @@ jQuery(document).ready(function($){
 		}
 	}
 	
-	
 	// Cart 
 	$("#inventory").on("click", ".addCart" , function(event){
 		event.preventDefault();
