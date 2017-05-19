@@ -1,23 +1,30 @@
 jQuery(document).ready(function($){
 
-	//var spinArray = ['animation900','animation1080','animation1260','animation1440','animation1620','animation1800','animation1980','animation2160'];
+	NodeServer = "localhost:3000"; //Your Node.JS Server Domain:Port
 
-	var player1 = ['animation1080','animation1440','animation1800','animation2160'];
-    var player2 =['animation900','animation1260','animation1620','animation1980'];
-
-	function getSpin(player) {
-        
-        if (player == 1){
-            return player1[Math.floor(Math.random()*player1.length)];
-        }else{
-            return player2[Math.floor(Math.random()*player2.length)];
-        }
-	}
-    
-    
-    $(".caption").on("click", ".JoinBet" , function(){
-        $(this).parent().parent().find('.coin-flip-cont').find('.coin').removeClass().addClass("coin " + getSpin(Math.floor(Math.random() * 2) + 1));
-
-        console.log($(this).attr("data-BetID"));
+	var socket = io.connect(NodeServer);
+	
+	$(".caption").on("click", ".JoinBet" , function(){
+		socket.emit('PlaceBet', $(this).attr("data-BetID"));
 	});
+
+	socket.on('FlipCoin', function(BetID, Winner){
+
+		$(".thumbnail").each(function(index,item) {
+
+			if ($(item).find(".JoinBet").attr("data-BetID") == BetID){
+				$(item).find('.coin').removeClass().addClass("coin " + Winner);
+			}
+		});
+	});
+
+	var bets = [];
+
+	var bet = function(id, name, avatar1, avatar2, ammount){
+		this.id = id;
+		this.name = name;
+		this.avatar1 = avatar1;
+		this.avatar2 = avatar2;
+		this.ammount = ammount;
+	}
 });

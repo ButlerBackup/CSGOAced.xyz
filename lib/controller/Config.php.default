@@ -11,7 +11,8 @@ $Link = (object) array( 'Website' => 'http://localhost/CSGOAced/',
 						'SteamGroup' => 'https://steamcommunity.com/groups/CSGOAced_xyz/',
 						'Instagram' => 'https://www.instagram.com/csgoaced.xyz/',
 						'GitHub' => 'https://github.com/CSGOAced/',
-						'Mail' => 'admin@csgoaced.xyz');
+						'Mail' => 'admin@csgoaced.xyz',
+						'NodeServer' => 'http://localhost:3000/');
 
 $Page = (object) array( 'Home' => 'home',
 						'Deposit' => 'deposit', 
