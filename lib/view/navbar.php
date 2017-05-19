@@ -31,6 +31,7 @@
 						<ul class="dropdown-menu">
 							<?php if($_SESSION['Role'] == "Admin"){ ?>
 							<li><a href="<?php echo $Link->Website . '?'. $Page->Admin; ?>"><span class="glyphicon glyphicon-tower"></span> Admin</a></li>
+							<li><a href="<?php echo $Link->Website . '?'. $Page->RefreshPrices; ?>"><span class="glyphicon glyphicon-refresh"></span> Refresh Prices</a></li>
 							<?php } ?>
 							<li><a href="<?php echo $Link->Website . '?'. $Page->History; ?>"><span class="glyphicon glyphicon-list-alt"></span> History</a></li>
 							<li><a href="<?php echo $Link->Website . '?'. $Page->FreeCoins; ?>"><span class="glyphicon glyphicon-gift"></span> Free Coins</a></li>
