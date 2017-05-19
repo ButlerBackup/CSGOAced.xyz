@@ -53,12 +53,13 @@ main{
 .coin-flip-cont {
 width: 128px;
 height: 128px;	
-top: calc(50% - 100px);
-left: calc(50% - 100px);
+display: block;
+margin: auto;
+margin-top: 10px;
+margin-bottom: 10px;
 }
 
 .coin {
-
 width: 128px;
 transform-style: preserve-3d;
 }
@@ -72,15 +73,11 @@ height: 128px;
 .coin .front {
 transform: translateZ(1px);
 border-radius: 50%;
-background: url(../img/avatar1.jpg);
-background-size: 100%;
 }
 
 .coin .back {
 transform: translateZ(-1px) rotateY(180deg);
 border-radius: 50%;
-background: url(../img/avatar2.jpg);
-background-size: 100%;
 }
 
 .coin.animation900 {

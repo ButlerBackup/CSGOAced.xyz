@@ -15,7 +15,9 @@ jQuery(document).ready(function($){
 	}
     
     
-    $("#bets").on("click", ".coin" , function(){
-        $(this).removeClass().addClass("coin " + getSpin(Math.floor(Math.random() * 2) + 1));
+    $(".caption").on("click", ".JoinBet" , function(){
+        $(this).parent().parent().find('.coin-flip-cont').find('.coin').removeClass().addClass("coin " + getSpin(Math.floor(Math.random() * 2) + 1));
+
+        console.log($(this).attr("data-BetID"));
 	});
 });
