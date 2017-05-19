@@ -2,75 +2,20 @@
 	<div class="col-xs-6 col-md-3">
 		<div class="thumbnail">
 			<div class="coin-flip-cont">
-				<div class="coin">
-					<div class="front" style="background: url(<?php echo $Link->Website; ?>img/avatar1.jpg); background-size: 100%;"></div>
-					<div class="back" style="background: url(<?php echo $Link->Website; ?>img/avatar2.jpg); background-size: 100%;"></div>
-				</div>	
-			</div>
-			<div class="caption">
-				<h4>100 Coins</h4>
-				<button type="button" class="btn btn-info btn-md JoinBet" data-BetID="1">Join Bet <span class="glyphicon glyphicon-fire"></span></button>
+				<div class="coin"><div class="front" style="background: url(http://localhost/CSGOAced/img/avatar2.jpg); background-size: 100%;"></div>
+			</div></div><div class="caption">
+				<h4>X Coins</h4>
+				<button type="button" class="btn btn-info btn-md PlaceBet">Place Bet <span class="glyphicon glyphicon-fire"></span></button>
 			</div>
 		</div>
 	</div>
-	<div class="col-xs-6 col-md-3">
-		<div class="thumbnail">
-			<div class="coin-flip-cont">
-				<div class="coin">
-					<div class="front" style="background: url(<?php echo $Link->Website; ?>img/avatar1.jpg); background-size: 100%;"></div>
-					<div class="back" style="background: url(<?php echo $Link->Website; ?>img/avatar2.jpg); background-size: 100%;"></div>
-				</div>	
-			</div>
-			<div class="caption">
-				<h4>100 Coins</h4>
-				<button type="button" class="btn btn-info btn-md JoinBet" data-BetID="2">Join Bet <span class="glyphicon glyphicon-fire"></span></button>
-			</div>
-		</div>
-	</div>
-	<div class="col-xs-6 col-md-3">
-		<div class="thumbnail">
-			<div class="coin-flip-cont">
-				<div class="coin">
-					<div class="front" style="background: url(<?php echo $Link->Website; ?>img/avatar1.jpg); background-size: 100%;"></div>
-					<div class="back" style="background: url(<?php echo $Link->Website; ?>img/avatar2.jpg); background-size: 100%;"></div>
-				</div>	
-			</div>
-			<div class="caption">
-				<h4>100 Coins</h4>
-				<button type="button" class="btn btn-info btn-md JoinBet" data-BetID="3">Join Bet <span class="glyphicon glyphicon-fire"></span></button>
-			</div>
-		</div>
-	</div>
-	<div class="col-xs-6 col-md-3">
-		<div class="thumbnail">
-			<div class="coin-flip-cont">
-				<div class="coin">
-					<div class="front" style="background: url(<?php echo $Link->Website; ?>img/avatar1.jpg); background-size: 100%;"></div>
-					<div class="back" style="background: url(<?php echo $Link->Website; ?>img/avatar2.jpg); background-size: 100%;"></div>
-				</div>	
-			</div>
-			<div class="caption">
-				<h4>100 Coins</h4>
-				<button type="button" class="btn btn-info btn-md JoinBet" data-BetID="4">Join Bet <span class="glyphicon glyphicon-fire"></span></button>
-			</div>
-		</div>
-	</div>
-	<div class="col-xs-6 col-md-3">
-		<div class="thumbnail">
-			<div class="coin-flip-cont">
-				<div class="coin">
-					<div class="front" style="background: url(<?php echo $Link->Website; ?>img/avatar1.jpg); background-size: 100%;"></div>
-					<div class="back" style="background: url(<?php echo $Link->Website; ?>img/avatar2.jpg); background-size: 100%;"></div>
-				</div>	
-			</div>
-			<div class="caption">
-				<h4>100 Coins</h4>
-				<button type="button" class="btn btn-info btn-md JoinBet" data-BetID="5">Join Bet <span class="glyphicon glyphicon-fire"></span></button>
-			</div>
-		</div>
+	<div id="bets">
+
 	</div>
 </div>
 
 <div class="col-sm-4">
-
+	<div id="chat">
+	
+	</div>
 </div>
