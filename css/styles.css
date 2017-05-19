@@ -72,14 +72,14 @@ height: 128px;
 .coin .front {
 transform: translateZ(1px);
 border-radius: 50%;
-background: url(img/avatar1.jpg);
+background: url(../img/avatar1.jpg);
 background-size: 100%;
 }
 
 .coin .back {
 transform: translateZ(-1px) rotateY(180deg);
 border-radius: 50%;
-background: url(img/avatar2.jpg);
+background: url(../img/avatar2.jpg);
 background-size: 100%;
 }
 
