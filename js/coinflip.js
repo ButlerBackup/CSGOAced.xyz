@@ -1,10 +1,6 @@
 jQuery(document).ready(function($){
 
-	NodeServer = "localhost:3000"; //Your Node.JS Server Domain:Port
-
-	var socket = io.connect(NodeServer);
-	
-	
+	var socket = io.connect(GetServer());	
 
 	socket.on('FlipCoin', function(BetID, Winner){
 

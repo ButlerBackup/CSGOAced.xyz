@@ -14,6 +14,7 @@ switch ($GetPage) {
 
 	case $Page->Home:
 	default: ?>
+		<script type="text/javascript"> function GetServer(){ return "<?php echo $Link->NodeServer; ?>"; } </script>
 		<script type="text/javascript" src="<?php echo $Link->Website . 'js/coinflip.js'; ?>"></script>
 		<?php break;
 }
