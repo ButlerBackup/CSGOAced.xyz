@@ -11,7 +11,7 @@ $Link = (object) array( 'Website' => 'http://www.csgoaced.xyz/',
 						'SteamGroup' => 'https://www.steamcommunity.com/groups/CSGOAced_xyz/',
 						'Instagram' => 'https://www.instagram.com/csgoaced.xyz/',
 						'GitHub' => 'https://www.github.com/CSGOAced/',
-						'NodeServer' => 'http://www.csgoaced.xyz:3000/',
+						'NodeServer' => ('http://' . $_SERVER['SERVER_ADDR'] . ':3000/'),
 						'Mail' => 'admin@csgoaced.xyz');
 
 $Page = (object) array( 'Home' => 'home',
