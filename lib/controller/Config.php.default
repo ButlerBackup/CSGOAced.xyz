@@ -5,14 +5,14 @@ $Vars = (object) array( 'Name' => 'CSGO Aced',
 						'Keywords' => 'CSGO, cs, counter, strike, skins, dragonlore, karambit, aced, ace, bet, beting, gamble, gambling',
 						'FriendlyURL' => 'CSGOAced.xyz');
 
-$Link = (object) array( 'Website' => 'http://localhost/CSGOAced/',
+$Link = (object) array( 'Website' => 'http://www.csgoaced.xyz/',
 						'Facebook' => 'https://www.facebook.com/csgoaced/', 
 						'Twitter' => 'https://twitter.com/CSGOAcedXyz/',
-						'SteamGroup' => 'https://steamcommunity.com/groups/CSGOAced_xyz/',
+						'SteamGroup' => 'https://www.steamcommunity.com/groups/CSGOAced_xyz/',
 						'Instagram' => 'https://www.instagram.com/csgoaced.xyz/',
-						'GitHub' => 'https://github.com/CSGOAced/',
-						'Mail' => 'admin@csgoaced.xyz',
-						'NodeServer' => 'http://localhost:3000/');
+						'GitHub' => 'https://www.github.com/CSGOAced/',
+						'NodeServer' => 'http://www.csgoaced.xyz:3000/',
+						'Mail' => 'admin@csgoaced.xyz');
 
 $Page = (object) array( 'Home' => 'home',
 						'Deposit' => 'deposit', 
