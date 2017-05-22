@@ -5,13 +5,13 @@ $Vars = (object) array( 'Name' => 'CSGO Aced',
 						'Keywords' => 'CSGO, cs, counter, strike, skins, dragonlore, karambit, aced, ace, bet, beting, gamble, gambling',
 						'FriendlyURL' => 'CSGOAced.xyz');
 
-$Link = (object) array( 'Website' => 'http://www.csgoaced.xyz/',
+$Link = (object) array( 'Website' => 'https://www.csgoaced.xyz/',
 						'Facebook' => 'https://www.facebook.com/csgoaced/', 
 						'Twitter' => 'https://twitter.com/CSGOAcedXyz/',
 						'SteamGroup' => 'https://www.steamcommunity.com/groups/CSGOAced_xyz/',
 						'Instagram' => 'https://www.instagram.com/csgoaced.xyz/',
 						'GitHub' => 'https://www.github.com/CSGOAced/',
-						'NodeServer' => ('//' . $_SERVER['SERVER_ADDR'] . ':3000/'),
+						'NodePath' => ('ws/socketio'),
 						'Mail' => 'admin@csgoaced.xyz');
 
 $Page = (object) array( 'Home' => 'home',
