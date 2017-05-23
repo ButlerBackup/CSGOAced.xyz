@@ -7,6 +7,8 @@
 	</head>
 
 	<body>
+		<?php include_once("lib/view/analyticstracking.php") ?>
+
 		<?php require ("lib/view/navbar.php"); ?>
 
 		<?php require ("lib/view/content.php"); ?>
