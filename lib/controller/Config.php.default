@@ -6,16 +6,15 @@ $Vars = (object) array( 'Name' => 'CSGO Aced',
 						'FriendlyURL' => 'CSGOAced.xyz');
 
 $Link = (object) array( 'Website' => 'https://www.csgoaced.xyz/',
-						'Facebook' => 'https://www.facebook.com/csgoaced/', 
+						'Facebook' => 'https://www.facebook.com/csgoaced/',
 						'Twitter' => 'https://twitter.com/CSGOAcedXyz/',
 						'SteamGroup' => 'https://www.steamcommunity.com/groups/CSGOAced_xyz/',
 						'Instagram' => 'https://www.instagram.com/csgoaced.xyz/',
 						'GitHub' => 'https://www.github.com/CSGOAced/',
-						'NodePath' => ('ws/socketio'),
 						'Mail' => 'admin@csgoaced.xyz');
 
 $Page = (object) array( 'Home' => 'home',
-						'Deposit' => 'deposit', 
+						'Deposit' => 'deposit',
 						'Widthraw' => 'widthraw',
 						'Admin' => 'admin',
 						'RefreshPrices' => 'refreshprices',
@@ -24,3 +23,8 @@ $Page = (object) array( 'Home' => 'home',
 						'TradeURL' => 'tradeurl',
 						'Settings' => 'settings',
 						'Logout' => 'logout');
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
