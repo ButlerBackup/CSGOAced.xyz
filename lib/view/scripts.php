@@ -25,7 +25,7 @@ switch ($GetPage) {
 			}
 
 			function GetServer(){ 
-				return "<?php echo $Link->Website; ?>"; 
+				return "<?php echo $Link->NodePath; ?>"; 
 			} 
 		</script>
 		<script type="text/javascript" src="<?php echo $Link->Website . 'js/coinflip.js'; ?>"></script>
