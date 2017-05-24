@@ -35,6 +35,10 @@ jQuery(document).ready(function($){
 
 			if ($(item).find(".JoinBet").attr("data-BetID") == bet.id){
 				$(item).parent().fadeOut();
+
+				setTimeout(function(){
+					$(item).parent().remove();
+				}, 500);
 				return false;
 			}
 		});
