@@ -4,7 +4,7 @@ $JSONpricelist = file_get_contents("https://api.csgofast.com/price/all");
 $Pricelist = json_decode($JSONpricelist);
 
 
-$sth = $conn->prepare("DELETE FROM SkinPrices WHERE '1'='1';");
+$sth = $conn->prepare("TRUNCATE TABLE SkinPrices;");
 $sth->execute();
 
 $sth = $conn->prepare( "IF NOT EXISTS(SELECT MarketName FROM Skins WHERE MarketName=:MarketName)
