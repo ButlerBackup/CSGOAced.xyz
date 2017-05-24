@@ -34,27 +34,50 @@ jQuery(document).ready(function($){
 		$(".thumbnail").each(function(index,item) {
 
 			if ($(item).find(".JoinBet").attr("data-BetID") == bet.id){
-
-				$(item).parent().appendTo("#OnGoingBets");
-
-				setTimeout(function(){
-					$(item).find('.coin').removeClass().addClass("coin " + getSpin(bet.winner));
-					
-					setTimeout(function(){
-						$(item).parent().remove();
-					}, 4250);
-				}, 100);
+				$(item).parent().fadeOut();
+				return false;
 			}
 		});
+
+		setTimeout(function(){
+
+			$(GetBetHTML(bet)).appendTo('#OnGoingBets').hide().fadeIn();
+
+			$('#OnGoingBets').find(".thumbnail").each(function(index,item) {
+				if ($(item).find(".OnGoingBet").attr("data-BetID") == bet.id){
+					setTimeout(function(){
+						$(item).find('.coin').removeClass().addClass("coin " + getSpin(bet.winner));
+						
+						setTimeout(function(){
+							$(item).parent().fadeOut();
+							setTimeout(function(){
+								$(item).parent().remove();
+							}, 500);
+						}, 4250);
+					}, 100);
+
+					return false;
+				}
+			});
+		}, 500);
 	});
 
 	socket.on('display bet', function(bet){
-		var output = '<div class="col-xs-6 col-md-3"><div class="thumbnail"><div class="coin-flip-cont"><div class="coin"><div class="front" style="background: url(' + bet.avatar1 + '); background-size: 100%;"></div><div class="back" style="background: url(' + bet.avatar2 + '); background-size: 100%;"></div></div></div><div class="caption"><h4>' + bet.ammount + ' Coins</h4><button type="button" class="btn btn-info btn-md JoinBet" data-betid="' + bet.id + '">Join Bet <span class="glyphicon glyphicon-fire"></span></button></div></div></div>';
-
-		$("#Bets").append(output);
+		
+		$(GetBetHTML(bet)).appendTo("#Bets").hide().fadeIn();
 
 		$(".caption").on("click", ".JoinBet" , function(){
-			socket.emit('join bet', $(this).attr("data-BetID"));
+			MyBet = {
+				id:$(this).attr("data-BetID"),
+				name:User.name,
+				avatar:User.avatar
+			};
+
+			socket.emit('join bet', MyBet);
 		});
 	});
+
+	function GetBetHTML(bet){
+		return '<div class="col-xs-6 col-md-3"><div class="thumbnail"><div class="coin-flip-cont"><div class="coin"><div class="front" style="background: url(' + bet.avatar1 + '); background-size: 100%;"></div><div class="back" style="background: url(' + bet.avatar2 + '); background-size: 100%;"></div></div></div><div class="caption"><h4>' + bet.ammount + ' Coins</h4><button type="button" class="btn btn-info btn-md ' + ((bet.isFinished) ? 'OnGoingBet' : 'JoinBet') + '" data-betid="' + bet.id + '">' + ((bet.isFinished) ? 'Ongoing Bet' : 'Join Bet') + ' <span class="glyphicon glyphicon-fire"></span></button></div></div></div>';
+	}
 });
