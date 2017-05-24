@@ -18,11 +18,12 @@ jQuery(document).ready(function($){
 
 	$("#PlaceBets").on("click", ".PlaceBet" , function(event){
 
-		coins = parseInt($(this).parent().find('.form-control').val())
+		coins = parseInt($(this).parent().find('.form-control').val());
+
+		$(this).parent().find('.form-control').val("");
 
 		if (isNaN(coins)){
 			alert("Please enter a valid Number");
-			$(this).parent().find('.form-control').val("");
 			return false;
 		}
 
