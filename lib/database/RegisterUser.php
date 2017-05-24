@@ -19,7 +19,12 @@ if(!isset($_SESSION['UID'])){
 		$NewUser = true;
 	}
 
-    $_SESSION['UID'] = $User[0][0];
+	$_SESSION['UID'] = $User[0][0];
     $_SESSION['Role'] = $User[0][1];
+
+	$sth = $conn->prepare("INSERT INTO LoginHistory (UserID, IP) VALUES (:UID, :IP);");
+	$sth->bindParam(':UID', $_SESSION['UID']);
+	$sth->bindParam(':IP', $_SERVER['REMOTE_ADDR']);
+	$sth->execute();	
 }
 
