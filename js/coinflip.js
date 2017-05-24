@@ -17,12 +17,26 @@ jQuery(document).ready(function($){
 	}
 
 	$("#PlaceBets").on("click", ".PlaceBet" , function(event){
-		socket.emit('place bet', User);
+
+		coins = parseInt($(this).parent().find('.form-control').val())
+
+		if (isNaN(coins)){
+			alert("Please enter a valid Number");
+			$(this).parent().find('.form-control').val("");
+			return false;
+		}
+
+		MyBet = {
+			ammount:coins,
+			name:User.name,
+			avatar:User.avatar
+		};
+		socket.emit('place bet', MyBet);
 	});
 
 	socket.on('show place bet', function(){
 		if (User.name != ""){
-			var output = '<div class="col-xs-6 col-md-3"><div class="thumbnail"><div class="coin-flip-cont"><div class="coin"><div class="front" style="background: url(' + User.avatar + '); background-size: 100%;"></div></div></div><div class="caption"><h4>X Coins</h4><button type="button" class="btn btn-info btn-md PlaceBet">Place Bet <span class="glyphicon glyphicon-fire"></span></button></div></div></div>';
+			var output = '<div class="col-xs-6 col-md-3"><div class="thumbnail"><div class="coin-flip-cont"><div class="coin"><div class="front" style="background: url(' + User.avatar + '); background-size: 100%;"></div></div></div><div class="caption"><div class="input-group input-group-sm"><input type="text" class="form-control" placeholder="Coins" aria-describedby="basic-addon2"></div><button type="button" class="btn btn-info btn-md PlaceBet">Place Bet <span class="glyphicon glyphicon-fire"></span></button></div></div></div>';
 			$("#PlaceBets").html(output);
 			$("#OnGoingBets").html("");
 			$("#Bets").html("");
@@ -38,7 +52,7 @@ jQuery(document).ready(function($){
 
 				setTimeout(function(){
 					$(item).parent().remove();
-				}, 500);
+				}, 400);
 				return false;
 			}
 		});
@@ -56,14 +70,14 @@ jQuery(document).ready(function($){
 							$(item).parent().fadeOut();
 							setTimeout(function(){
 								$(item).parent().remove();
-							}, 500);
+							}, 400);
 						}, 4250);
-					}, 100);
+					}, 400);
 
 					return false;
 				}
 			});
-		}, 500);
+		}, 400);
 	});
 
 	socket.on('display bet', function(bet){

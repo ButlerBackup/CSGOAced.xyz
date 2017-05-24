@@ -15,10 +15,10 @@ main{
 	left: 24px;
 	opacity: 0;
 	-webkit-transition: opacity .05s ease-in;
-    -moz-transition: opacity .05s ease-in;
-    -o-transition: opacity .05s ease-in;
-    -ms-transition: opacity .05s ease-in;
-    transition: opacity .05s ease-in;
+	-moz-transition: opacity .05s ease-in;
+	-o-transition: opacity .05s ease-in;
+	-ms-transition: opacity .05s ease-in;
+	transition: opacity .05s ease-in;
 }
 
 .thumbnail:hover > h5{
@@ -49,6 +49,11 @@ main{
 
 
 /* Coinflip */
+
+.thumbnail .caption .input-group{
+	margin-top: 2px;
+	margin-bottom: 7px;
+}
 
 .coin-flip-cont {
 width: 128px;
