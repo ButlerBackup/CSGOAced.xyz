@@ -1,5 +1,31 @@
 jQuery(document).ready(function($){
 
+	/*
+     _____      _               
+    /  ___|    | |              
+    \ `--.  ___| |_ _   _ _ __  
+     `--. \/ _ \ __| | | | '_ \ 
+    /\__/ /  __/ |_| |_| | |_) |
+    \____/ \___|\__|\__,_| .__/ 
+                         | |    
+                         |_|    
+	*/
+
+	var User = GetUser();
+	var socket = io.connect(GetServer());
+
+	var cart = [];
+
+	var Item = function(market_name, icon_url, assetID, classID, price){
+		this.market_name = market_name;
+		this.icon_url = icon_url;
+		this.assetID = assetID;
+		this.classID = classID;
+		this.price = price;
+	}
+	
+	InventoryList = [];
+
     /*   _____       _      ______ _ _       
         /  __ \     (_)     |  ___| (_)      
         | /  \/ ___  _ _ __ | |_  | |_ _ __  
@@ -8,9 +34,6 @@ jQuery(document).ready(function($){
         \____/\___/|_|_| |_\_|   |_|_| .__/ 
                                     | |    
                                     |_|     */
-	var User = GetUser();
-
-	var socket = io.connect(GetServer());
 
 	//Coin Flip
 	var player1 = ['animation1080','animation1440','animation1800','animation2160'];
@@ -117,22 +140,7 @@ jQuery(document).ready(function($){
                 | |                    
                 |_|              */
 
-    //Setup
-	var cart = [];
-
-	var Item = function(market_name, icon_url, assetID, classID, price){
-		this.market_name = market_name;
-		this.icon_url = icon_url;
-		this.assetID = assetID;
-		this.classID = classID;
-		this.price = price;
-	}
-	
-	InventoryList = [];
-
-	
-	//Inventory 
-	
+	//Inventory
 	$('button', $('#inventory')).each(function () {
 		var market_name = $(this).attr("data-name");
 		var icon_url = $(this).attr("data-icon");
