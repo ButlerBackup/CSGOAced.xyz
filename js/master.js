@@ -31,7 +31,7 @@ jQuery(document).ready(function($){
         | /  \/ ___  _ _ __ | |_  | |_ _ __  
         | |    / _ \| | '_ \|  _| | | | '_ \ 
         | \__/\ (_) | | | | | |   | | | |_) |
-        \____/\___/|_|_| |_\_|   |_|_| .__/ 
+         \____/\___/|_|_| |_\_|   |_|_| .__/ 
                                     | |    
                                     |_|     */
 
@@ -304,12 +304,12 @@ jQuery(document).ready(function($){
 		Message = function (arg) {
 			this.text = arg.text, this.message_side = arg.message_side;
 			this.draw = function (_this) {
-				return function () {
+				return function (avatar) {
 					var $message;
 					$message = $($('.message_template').clone().html());
 					$message.addClass(_this.message_side).find('.text').html(_this.text);
 
-					$message.find('.avatar').css({'background': 'url(https://www.csgoaced.xyz/img/icon.png)', 'background-size': '100%'});
+					$message.find('.avatar').css({'background': 'url(' + avatar + ')', 'background-size': '100%'});
 
 					$('.messages').append($message);
 					return setTimeout(function () {
@@ -322,35 +322,43 @@ jQuery(document).ready(function($){
 		$(function () {
 			var getMessageText, message_side, sendMessage;
 			message_side = 'right';
+
 			getMessageText = function () {
 				var $message_input;
 				$message_input = $('.message_input');
 				return $message_input.val();
 			};
-			sendMessage = function (text) {
-				var $messages, message;
-				if (text.trim() === '') {
-					return;
-				}
-				$('.message_input').val('');
+
+			socket.on('message', function(user, text){
 				$messages = $('.messages');
 				message_side = message_side === 'left' ? 'right' : 'left';
 				message = new Message({
 					text: text,
 					message_side: message_side
 				});
-				message.draw();
+				message.draw(user.avatar);
 				return $messages.animate({ scrollTop: $messages.prop('scrollHeight') }, 300);
-			};
+			});
+
+			function sendMessage(text){
+				var $messages, message;
+				if (text.trim() === '') {
+					return;
+				}
+				$('.message_input').val('');
+
+				socket.emit('message', User, text);
+			}
+
 			$('.send_message').click(function (e) {
 				return sendMessage(getMessageText());
 			});
+
 			$('.message_input').keyup(function (e) {
 				if (e.which === 13) {
 					return sendMessage(getMessageText());
 				}
 			});
-			sendMessage('Welcome to CSGOAced!');
 		});
 	}.call(this));
 });
