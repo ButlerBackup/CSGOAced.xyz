@@ -2,11 +2,9 @@
 	<div class="chat_window">
 		<div class="top_menu">
 			<div class="buttons">
-				<div class="button close"></div>
-				<div class="button minimize"></div>
 				<div class="button maximize"></div>
 			</div>
-			<div class="title">CSGOAced Chat</div>
+			<div class="title"><?php echo $Vars->FriendlyURL; ?> Chat</div>
 		</div>
 		<ul class="messages"></ul>
 		<div class="bottom_wrapper clearfix">
