@@ -1,2 +1,3 @@
 lib/controller/Config.php
 lib/database/Connect.php
+lib/SteamAuth
