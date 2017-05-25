@@ -29,5 +29,6 @@ switch ($GetPage) {
 			} 
 		</script>
 		<script type="text/javascript" src="<?php echo $Link->Website . 'js/coinflip.js'; ?>"></script>
+		<script type="text/javascript" src="<?php echo $Link->Website . 'js/chat.js'; ?>"></script>
 		<?php break;
 }
