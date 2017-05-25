@@ -210,7 +210,7 @@ to { -webkit-transform: rotateY(2160deg); -moz-transform: rotateY(2160deg); tran
 /* Chat */
 
 .chat_window {
-  width: calc(100% - 20px);
+  width: 100%;
   max-width: 800px;
   height: 485px;
   border-radius: 10px;
