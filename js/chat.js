@@ -9,14 +9,7 @@ jQuery(document).ready(function($){
 					$message = $($('.message_template').clone().html());
 					$message.addClass(_this.message_side).find('.text').html(_this.text);
 
-					console.log(_this.text.length);
-
-					msgBoxHeight = 65;
-					for (i = 23; i < _this.text.length; i+=23){
-						msgBoxHeight += 25;
-					}
-
-					$message.find('.text_wrapper').css('height', msgBoxHeight);
+					$message.find('.avatar').css({'background': 'url(https://www.csgoaced.xyz/img/icon.png)', 'background-size': '100%'});
 
 					$('.messages').append($message);
 					return setTimeout(function () {
@@ -57,13 +50,7 @@ jQuery(document).ready(function($){
 					return sendMessage(getMessageText());
 				}
 			});
-			sendMessage('Hello Philip! :)');
-			setTimeout(function () {
-				return sendMessage('Hi Sandy! How are you?');
-			}, 1000);
-			return setTimeout(function () {
-				return sendMessage('I\'m fine, thank you!');
-			}, 2000);
+			sendMessage('Welcome to CSGOAced!');
 		});
 	}.call(this));
 });
