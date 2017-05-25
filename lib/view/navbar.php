@@ -13,7 +13,7 @@
 		<div class="collapse navbar-collapse" id="myNavbar">
 			<ul class="nav navbar-nav navbar-right">
 				<li <?php if ($GetPage == $Page->Home){ ?> class="active" <?php } ?>>
-					<a href="<?php echo $Link->Website . '?p=' . $Page->Home; ?>">Coinflip</a>
+					<a href="<?php echo $Link->Website; ?>">Coinflip</a>
 				</li>
 				<li <?php if ($GetPage == $Page->Deposit){ ?> class="active" <?php } ?>>
 					<a href="<?php echo $Link->Website . '?p=' . $Page->Deposit; ?>">Deposit</a>
