@@ -8,13 +8,18 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.1/socket.io.js"></script>
 
 <script type="text/javascript"> 
-	var User = function(name, avatar){
+	var User = function(id, name, avatar, PrivateKey){
+		this.id = id;
 		this.name = name;
 		this.avatar = avatar;
+		this.PrivateKey = PrivateKey;
 	}
 
 	function GetUser(){
-		return (new User("<?php echo (isset($steamprofile) ? $steamprofile['personaname'] : ""); ?>", "<?php echo (isset($steamprofile) ? $steamprofile['avatarfull'] : ""); ?>"));
+		return (new User("<?php echo (isset($_SESSION['UID']) ? $_SESSION['UID'] : ""); ?>",
+						"<?php echo (isset($steamprofile) ? $steamprofile['personaname'] : ""); ?>",
+						"<?php echo (isset($steamprofile) ? $steamprofile['avatarfull'] : ""); ?>",
+						"<?php echo (isset($_SESSION['PrivateKey']) ? $_SESSION['PrivateKey'] : ""); ?>"));
 	}
 
 	function GetServer(){ 
