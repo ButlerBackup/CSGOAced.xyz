@@ -111,7 +111,7 @@ jQuery(document).ready(function($){
 							setTimeout(function(){
 								$(item).parent().remove();
 							}, 400);
-						}, 4250);
+						}, 4750);
 					}, 400);
 
 					return false;
