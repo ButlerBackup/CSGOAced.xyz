@@ -26,6 +26,14 @@ jQuery(document).ready(function($){
 	
 	InventoryList = [];
 
+	socket.on('update online', function(UsersOnline){
+		$("#Online").fadeOut();
+
+		setTimeout(function(){
+			$("#Online").html(UsersOnline).hide().fadeIn();
+		}, 400);
+	});
+
     /*   _____       _      ______ _ _       
         /  __ \     (_)     |  ___| (_)      
         | /  \/ ___  _ _ __ | |_  | |_ _ __  

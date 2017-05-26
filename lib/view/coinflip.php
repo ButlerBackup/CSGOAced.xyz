@@ -2,7 +2,9 @@
 	<div class="chat_window">
 		<div class="top_menu">
 			<div class="buttons">
-				<div class="button maximize"></div>
+				<div class="button maximize">
+					<h4 id="Online"></h4>
+				</div>
 			</div>
 			<div class="title"><?php echo $Vars->FriendlyURL; ?> Chat</div>
 		</div>
