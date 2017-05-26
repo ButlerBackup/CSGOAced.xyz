@@ -27,7 +27,8 @@ if(!isset($_SESSION['UID'])){
 	$sth->bindParam(':IP', $_SERVER['REMOTE_ADDR']);
 	$sth->execute();
 
-	$_SESSION['PrivateKey'] = hash('SHA256', rand() . $steamprofile['steamid'] . rand() . $steamprofile['communityvisibilitystate'] . rand() . $steamprofile['personaname'] . rand() . $steamprofile['profileurl'] . rand() . $steamprofile['avatarfull'] . rand());
+	$Hash = (rand(0,1) == 1) ? 'sha512' : 'whirlpool';
+	$_SESSION['PrivateKey'] = hash($Hash, rand() . $steamprofile['steamid'] . rand() . $steamprofile['communityvisibilitystate'] . rand() . $steamprofile['personaname'] . rand() . $steamprofile['profileurl'] . rand() . $steamprofile['avatarfull'] . rand());
 
 	$sth = $conn->prepare("UPDATE Users SET PrivateKey = :PrivateKey WHERE ID = :UID");
 	$sth->bindParam(':UID', $_SESSION['UID']);
