@@ -34,6 +34,13 @@ jQuery(document).ready(function($){
 		}, 400);
 	});
 
+	socket.on('auth user', function(){
+		$("#PlaceBets").html("");
+		$("#OnGoingBets").html("");
+		$("#Bets").html("");
+		socket.emit('auth user', User);
+	});
+
     /*   _____       _      ______ _ _       
         /  __ \     (_)     |  ___| (_)      
         | /  \/ ___  _ _ __ | |_  | |_ _ __  
@@ -75,12 +82,8 @@ jQuery(document).ready(function($){
 	});
 
 	socket.on('show place bet', function(){
-		if (User.name != ""){
-			var output = '<div class="col-xs-6 col-md-3"><div class="thumbnail"><div class="coin-flip-cont"><div class="coin"><div class="front" style="background: url(' + User.avatar + '); background-size: 100%;"></div></div></div><div class="caption"><div class="input-group input-group-sm"><input type="text" class="form-control" placeholder="Coins" aria-describedby="basic-addon2"></div><button type="button" class="btn btn-info btn-md PlaceBet">Place Bet <span class="glyphicon glyphicon-fire"></span></button></div></div></div>';
-			$("#PlaceBets").html(output);
-			$("#OnGoingBets").html("");
-			$("#Bets").html("");
-		}
+		var output = '<div class="col-xs-6 col-md-3"><div class="thumbnail"><div class="coin-flip-cont"><div class="coin"><div class="front" style="background: url(' + User.avatar + '); background-size: 100%;"></div></div></div><div class="caption"><div class="input-group input-group-sm"><input type="text" class="form-control" placeholder="Coins" aria-describedby="basic-addon2"></div><button type="button" class="btn btn-info btn-md PlaceBet">Place Bet <span class="glyphicon glyphicon-fire"></span></button></div></div></div>';
+		$("#PlaceBets").html(output);
 	});
 
 	socket.on('flip', function(bet){
