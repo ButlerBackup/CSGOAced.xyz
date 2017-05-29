@@ -120,7 +120,21 @@ jQuery(document).ready(function($){
 		$(this).parent().find('.form-control').val("");
 
 		if (isNaN(coins)){
-			alert("Please enter a valid Number");
+			$.alert({
+				closeIcon: true,
+				closeIconClass: 'fa fa-close',
+				backgroundDismiss: true,
+				title: 'Invalid Number!',
+				content: 'Please enter a valid Number!',
+				buttons: {
+					ok: {
+						btnClass: 'btn-red',
+						keys: ['enter'],
+						action: function(){
+						}
+					}
+				}
+			});
 			return false;
 		}
 
