@@ -55,6 +55,7 @@ jQuery(document).ready(function($){
 		$.confirm({
 			closeIcon: true,
 			closeIconClass: 'fa fa-close',
+			backgroundDismiss: true,
 			title: 'Trade URL!',
 			content: '' +
 			'<form action="" class="formName">' +
@@ -169,11 +170,27 @@ jQuery(document).ready(function($){
 	});
 
 	socket.on('display bet', function(bet){
-		
-		$(GetBetHTML(bet)).appendTo("#Bets").hide().fadeIn();
-
-		$(".caption").on("click", ".JoinBet" , function(){
-			socket.emit('join bet', $(this).attr("data-BetID"));
+		$(GetBetHTML(bet)).appendTo("#Bets").hide().fadeIn().click(function(){
+			var BetID = $(this).find('.JoinBet').attr("data-BetID");
+			$.confirm({
+				closeIcon: true,
+				closeIconClass: 'fa fa-close',
+				backgroundDismiss: true,
+				title: 'Place Bet!',
+				content: 'Are you sure?',
+				buttons: {
+					confirm: {
+						btnClass: 'btn-green',
+						keys: ['enter'],
+						action: function(){
+							socket.emit('join bet', BetID);
+						}
+					},
+					cancel: {
+						btnClass: 'btn-red'
+					}
+				}
+			});
 		});
 	});
 
