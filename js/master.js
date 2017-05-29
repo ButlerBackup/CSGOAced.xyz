@@ -41,6 +41,10 @@ jQuery(document).ready(function($){
 		socket.emit('auth user', User);
 	});
 
+	socket.on('alert', function(alert){
+		$.alert(alert);
+	});
+
 
 	/*
 	 _   _             _                
