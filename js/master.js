@@ -73,12 +73,7 @@ jQuery(document).ready(function($){
 			return false;
 		}
 
-		MyBet = {
-			ammount:coins,
-			name:User.name,
-			avatar:User.avatar
-		};
-		socket.emit('place bet', MyBet);
+		socket.emit('place bet', coins);
 	});
 
 	socket.on('show place bet', function(){
@@ -128,13 +123,7 @@ jQuery(document).ready(function($){
 		$(GetBetHTML(bet)).appendTo("#Bets").hide().fadeIn();
 
 		$(".caption").on("click", ".JoinBet" , function(){
-			MyBet = {
-				id:$(this).attr("data-BetID"),
-				name:User.name,
-				avatar:User.avatar
-			};
-
-			socket.emit('join bet', MyBet);
+			socket.emit('join bet', $(this).attr("data-BetID"));
 		});
 	});
 
@@ -340,14 +329,14 @@ jQuery(document).ready(function($){
 				return $message_input.val();
 			};
 
-			socket.on('message', function(user, text){
+			socket.on('message', function(msg){
 				$messages = $('.messages');
 				message_side = message_side === 'left' ? 'right' : 'left';
 				message = new Message({
-					text: text,
+					text: msg.text,
 					message_side: message_side
 				});
-				message.draw(user.avatar);
+				message.draw(msg.avatar);
 				return $messages.animate({ scrollTop: $messages.prop('scrollHeight') }, 300);
 			});
 
@@ -358,7 +347,7 @@ jQuery(document).ready(function($){
 				}
 				$('.message_input').val('');
 
-				socket.emit('message', User, text);
+				socket.emit('message', text);
 			}
 
 			$('.send_message').click(function (e) {
