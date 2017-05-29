@@ -7,6 +7,10 @@
 <!-- Socket.io -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.1/socket.io.js"></script>
 
+<!-- JQuery Confirm -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.2.0/jquery-confirm.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.2.0/jquery-confirm.min.js"></script>
+
 <script type="text/javascript"> 
 	var User = function(id, name, avatar, PrivateKey){
 		this.id = id;

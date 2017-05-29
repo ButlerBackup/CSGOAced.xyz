@@ -1,14 +1,14 @@
 jQuery(document).ready(function($){
 
 	/*
-     _____      _               
-    /  ___|    | |              
-    \ `--.  ___| |_ _   _ _ __  
-     `--. \/ _ \ __| | | | '_ \ 
-    /\__/ /  __/ |_| |_| | |_) |
-    \____/ \___|\__|\__,_| .__/ 
-                         | |    
-                         |_|    
+	 _____      _               
+	/  ___|    | |              
+	\ `--.  ___| |_ _   _ _ __  
+	 `--. \/ _ \ __| | | | '_ \ 
+	/\__/ /  __/ |_| |_| | |_) |
+	\____/ \___|\__|\__,_| .__/ 
+						 | |    
+						 |_|    
 	*/
 
 	var User = GetUser();
@@ -41,14 +41,64 @@ jQuery(document).ready(function($){
 		socket.emit('auth user', User);
 	});
 
-    /*   _____       _      ______ _ _       
-        /  __ \     (_)     |  ___| (_)      
-        | /  \/ ___  _ _ __ | |_  | |_ _ __  
-        | |    / _ \| | '_ \|  _| | | | '_ \ 
-        | \__/\ (_) | | | | | |   | | | |_) |
-         \____/\___/|_|_| |_\_|   |_|_| .__/ 
-                                    | |    
-                                    |_|     */
+
+	/*
+	 _   _             _                
+	| \ | |           | |               
+	|  \| | __ ___   _| |__   __ _ _ __ 
+	| . ` |/ _` \ \ / / '_ \ / _` | '__|
+	| |\  | (_| |\ V /| |_) | (_| | |   
+	\_| \_/\__,_| \_/ |_.__/ \__,_|_|   
+	*/
+
+	$('.tradeurl').on('click', function () {
+		$.confirm({
+			closeIcon: true,
+			closeIconClass: 'fa fa-close',
+			title: 'Trade URL!',
+			content: '' +
+			'<form action="" class="formName">' +
+			'<div class="form-group">' +
+			'<label>Enter Your <a href="http://steamcommunity.com/profiles/76561198391711336/tradeoffers/privacy#trade_offer_access_url" target="_blank">Trade URL</a></label>' +
+			'<input type="text" placeholder="Your Trade URl" class="trade_url form-control" required />' +
+			'</div>' +
+			'</form>',
+			buttons: {
+				formSubmit: {
+					text: 'Submit',
+					btnClass: 'btn-blue',
+					action: function () {
+						var TradeURL = this.$content.find('.trade_url').val();
+						if(!TradeURL){
+							$.alert('Provide a valid Trade URL');
+							return false;
+						}
+					}
+				},
+				cancel: function () {
+					//close
+				},
+			},
+			onContentReady: function () {
+				// bind to events
+				var jc = this;
+				this.$content.find('form').on('submit', function (e) {
+					// if the user submits the form by pressing enter in the field.
+					e.preventDefault();
+					jc.$$formSubmit.trigger('click'); // reference the button and click it
+				});
+			}
+		});
+	});                            
+
+	/*   _____       _      ______ _ _       
+		/  __ \     (_)     |  ___| (_)      
+		| /  \/ ___  _ _ __ | |_  | |_ _ __  
+		| |    / _ \| | '_ \|  _| | | | '_ \ 
+		| \__/\ (_) | | | | | |   | | | |_) |
+		 \____/\___/|_|_| |_\_|   |_|_| .__/ 
+									| |    
+									|_|     */
 
 	//Coin Flip
 	var player1 = ['animation1080','animation1440','animation1800','animation2160'];
@@ -131,14 +181,14 @@ jQuery(document).ready(function($){
 		return '<div class="col-xs-6 col-md-3"><div class="thumbnail"><div class="coin-flip-cont"><div class="coin"><div class="front" style="background: url(' + bet.avatar1 + '); background-size: 100%;"></div><div class="back" style="background: url(' + bet.avatar2 + '); background-size: 100%;"></div></div></div><div class="caption"><h4>' + bet.ammount + ' Coins</h4><button type="button" class="btn btn-info btn-md ' + ((bet.isFinished) ? 'OnGoingBet' : 'JoinBet') + '" data-betid="' + bet.id + '">' + ((bet.isFinished) ? 'Ongoing Bet' : 'Join Bet') + ' <span class="glyphicon glyphicon-fire"></span></button></div></div></div>';
 	}
 
-    /*  ______                     _ _   
-        |  _  \                   (_) |  
-        | | | |___ _ __   ___  ___ _| |_ 
-        | | | / _ \ '_ \ / _ \/ __| | __|
-        | |/ /  __/ |_) | (_) \__ \ | |_ 
-        |___/ \___| .__/ \___/|___/_|\__|
-                | |                    
-                |_|              */
+	/*  ______                     _ _   
+		|  _  \                   (_) |  
+		| | | |___ _ __   ___  ___ _| |_ 
+		| | | / _ \ '_ \ / _ \/ __| | __|
+		| |/ /  __/ |_) | (_) \__ \ | |_ 
+		|___/ \___| .__/ \___/|___/_|\__|
+				| |                    
+				|_|              */
 
 	//Inventory
 	$('button', $('#inventory')).each(function () {
@@ -292,14 +342,14 @@ jQuery(document).ready(function($){
 		return "";
 	}
 
-    /*   _____ _           _   
-        /  __ \ |         | |  
-        | /  \/ |__   __ _| |_ 
-        | |   | '_ \ / _` | __|
-        | \__/\ | | | (_| | |_ 
-        \____/_| |_|\__,_|\__|  */
+	/*   _____ _           _   
+		/  __ \ |         | |  
+		| /  \/ |__   __ _| |_ 
+		| |   | '_ \ / _` | __|
+		| \__/\ | | | (_| | |_ 
+		\____/_| |_|\__,_|\__|  */
 
-    (function () {
+	(function () {
 		var Message;
 		Message = function (arg) {
 			this.text = arg.text, this.message_side = arg.message_side;
