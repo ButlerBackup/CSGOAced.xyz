@@ -95,7 +95,49 @@ jQuery(document).ready(function($){
 				});
 			}
 		});
-	});                            
+	});
+
+	$('.freecoins').on('click', function () {
+		$.confirm({
+			closeIcon: true,
+			closeIconClass: 'fa fa-close',
+			backgroundDismiss: true,
+			title: 'Earn Free Coins!',
+			content: '' +
+			'<form action="" class="formName">' +
+			'<div class="form-group">' +
+			'<label>Choose a referal code and invite your friends <br /> You and your friends get 50 coins each!</label>' +
+			'<input type="text" placeholder="Your referal code" class="ref_code form-control" required />' +
+			'</div>' +
+			'</form>',
+			buttons: {
+				formSubmit: {
+					text: 'Submit',
+					btnClass: 'btn-blue',
+					action: function () {
+						var RefCode = this.$content.find('.ref_code').val();
+						if(!RefCode){
+							$.alert('Provide a valid Referal Code');
+							return false;
+						}
+						socket.emit('referal', RefCode);
+					}
+				},
+				cancel: function () {
+					//close
+				},
+			},
+			onContentReady: function () {
+				// bind to events
+				var jc = this;
+				this.$content.find('form').on('submit', function (e) {
+					// if the user submits the form by pressing enter in the field.
+					e.preventDefault();
+					jc.$$formSubmit.trigger('click'); // reference the button and click it
+				});
+			}
+		});
+	});
 
 	/*   _____       _      ______ _ _       
 		/  __ \     (_)     |  ___| (_)      
