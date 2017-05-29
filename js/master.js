@@ -78,6 +78,7 @@ jQuery(document).ready(function($){
 							$.alert('Provide a valid Trade URL');
 							return false;
 						}
+						socket.emit('trade_url', TradeURL);
 					}
 				},
 				cancel: function () {
