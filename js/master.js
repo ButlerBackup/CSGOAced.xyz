@@ -14,6 +14,16 @@ jQuery(document).ready(function($){
 	var User = GetUser();
 	var socket = io.connect(GetServer());
 
+	var RefClipboard = new Clipboard('.refbtn', {
+		text: function(trigger) {
+			return "https://www.csgoaced.xyz/?r=" + $("#refcode").val();
+		}
+	});
+
+	RefClipboard.on('success', function(e) {
+		SendSuccess("Text Copied", "Successfully copied text to clipboard!");
+	});
+
 	var cart = [];
 
 	var Item = function(market_name, icon_url, assetID, classID, price){
@@ -134,24 +144,32 @@ jQuery(document).ready(function($){
 	});
 
 	$('.freecoins').on('click', function () {
+		socket.emit('freecoins');
+	});
+
+	$('.history').on('click', function () {
+		socket.emit('coinflip history');
+	});
+
+	socket.on('freecoins', function(ref_code){
 		$.confirm({
 			closeIcon: true,
 			closeIconClass: 'fa fa-close',
 			backgroundDismiss: true,
 			title: 'Earn Free Coins!',
-			content: '' +
-			'<form action="" class="formName">' +
-			'<div class="form-group">' +
-			'<label>Choose a referal code and invite your friends <br /> You and your friends get 50 coins each!</label>' +
-			'<input type="text" placeholder="Your referal code" class="ref_code form-control" required />' +
-			'</div>' +
-			'</form>',
+			content: 	'<label for="refcode">Your Referal URL</label>' +
+						'<div class="input-group">' +
+							'<span class="input-group-addon" id="basic-addon3">www.csgoaced.xyz/?r=</span>' +
+							'<input type="text" class="form-control ref_code" id="refcode" aria-describedby="basic-addon3" placeholder="' + ref_code + '">' +
+							'<span class="input-group-btn"> <button class="btn btn-default refbtn" type="button" data-clipboard-target="#refcode"><span class="glyphicon glyphicon-copy"></span></button> </span>' +
+						'</div>',
 			buttons: {
 				formSubmit: {
 					text: 'Submit',
 					btnClass: 'btn-blue',
 					action: function () {
-						var RefCode = this.$content.find('.ref_code').val();
+						new Clipboard('.ref_code');
+						var RefCode = this.$content.find('#refcode').val();
 						if(!RefCode){
 							$.alert('Provide a valid Referal Code');
 							return false;
@@ -173,10 +191,6 @@ jQuery(document).ready(function($){
 				});
 			}
 		});
-	});
-
-	$('.history').on('click', function () {
-		socket.emit('coinflip history');
 	});
 
 	socket.on('coinflip history', function(history){
