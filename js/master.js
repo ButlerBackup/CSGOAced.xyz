@@ -231,8 +231,8 @@ jQuery(document).ready(function($){
 	});
 
 	socket.on('display bet', function(bet){
-		$(GetBetHTML(bet)).appendTo("#Bets").hide().fadeIn().click(function(){
-			var BetID = $(this).find('.JoinBet').attr("data-BetID");
+		$(GetBetHTML(bet)).appendTo("#Bets").hide().fadeIn().find('.JoinBet').click(function(){
+			var BetID = $(this).attr("data-BetID");
 			$.confirm({
 				closeIcon: true,
 				closeIconClass: 'fa fa-close',
