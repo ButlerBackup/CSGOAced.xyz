@@ -203,21 +203,7 @@ jQuery(document).ready(function($){
 		$(this).parent().find('.form-control').val("");
 
 		if (isNaN(coins)){
-			$.alert({
-				closeIcon: true,
-				closeIconClass: 'fa fa-close',
-				backgroundDismiss: true,
-				title: 'Invalid Number!',
-				content: 'Please enter a valid Number!',
-				buttons: {
-					ok: {
-						btnClass: 'btn-red',
-						keys: ['enter'],
-						action: function(){
-						}
-					}
-				}
-			});
+			SendAlert("Invalid Number!", "Please enter a valid Number!");
 			return false;
 		}
 
@@ -347,7 +333,7 @@ jQuery(document).ready(function($){
 	$("#depositBox").on("click", ".checkout" , function(event){
 		event.preventDefault();
 
-		alert("Website not launched yet!");
+		SendAlert("Can't Deposit!", "Website not launched yet!");
 	});
 	
 	$("#depositBox").on("click", ".clearCart" , function(event){
