@@ -45,6 +45,42 @@ jQuery(document).ready(function($){
 		$.alert(alert);
 	});
 
+	function SendAlert(Title, Content){
+		$.alert({
+			closeIcon: true,
+			closeIconClass: 'fa fa-close',
+			backgroundDismiss: true,
+			title: Title,
+			content: Content,
+			buttons: {
+				ok: {
+					btnClass: 'btn-red',
+					keys: ['enter'],
+					action: function(){
+					}
+				}
+			}
+		});
+	}
+
+	function SendSuccess(Title, Content){
+		$.alert({
+			closeIcon: true,
+			closeIconClass: 'fa fa-close',
+			backgroundDismiss: true,
+			title: Title,
+			content: Content,
+			buttons: {
+				ok: {
+					btnClass: 'btn-green',
+					keys: ['enter'],
+					action: function(){
+					}
+				}
+			}
+		});
+	}
+
 
 	/*
 	 _   _             _                
