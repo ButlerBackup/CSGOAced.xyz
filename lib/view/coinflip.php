@@ -6,7 +6,7 @@
 					<h4 id="Online"></h4>
 				</div>
 			</div>
-			<div class="title"><?php echo $Vars->FriendlyURL; ?> Chat</div>
+			<div class="title"><?php echo $Vars->FriendlyURL; ?></div>
 		</div>
 		<ul class="messages"></ul>
 		<div class="bottom_wrapper clearfix">
