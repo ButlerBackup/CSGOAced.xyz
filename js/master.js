@@ -175,6 +175,38 @@ jQuery(document).ready(function($){
 		});
 	});
 
+	$('.history').on('click', function () {
+		socket.emit('coinflip history');
+	});
+
+	socket.on('coinflip history', function(history){
+		var output = ""	;
+
+		for (var bet in history){
+			output += '<tr>' +
+						'<td>' + history[bet].ID + '</td>' +
+						'<td>' + history[bet].Ammount + '</td>' +
+						'<td>' + history[bet].CreateTimestamp.replace('T', ' ').replace('.000Z', '') + '</td>' +
+					'</tr>';
+		}
+
+		console.log(output);
+
+		SendSuccess("Coinflip Win History", 
+		'<table class="table table-hover table-striped table-bordered">' +
+				'<thead>' +
+					'<tr>' +
+						'<th>ID</th>' +
+						'<th>Ammount</th>' +
+						'<th>Date</th>' +
+					'</tr>' +
+				'</thead>' +
+				'<tbody>' +
+					output +
+				'</tbody>' +
+			'</table>');
+	});
+
 	/*   _____       _      ______ _ _       
 		/  __ \     (_)     |  ___| (_)      
 		| /  \/ ___  _ _ __ | |_  | |_ _ __  
