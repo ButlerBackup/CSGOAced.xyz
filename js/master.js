@@ -240,6 +240,10 @@ jQuery(document).ready(function($){
 						
 						setTimeout(function(){
 							$(item).parent().fadeOut();
+
+							if (bet.winnerUID == User.id){
+								SendSuccess("Won Bet", "Congratulations, you won the bet!");
+							}
 							setTimeout(function(){
 								$(item).parent().remove();
 							}, 400);
