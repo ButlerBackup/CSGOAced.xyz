@@ -306,7 +306,7 @@ jQuery(document).ready(function($){
 							$(item).parent().fadeOut();
 
 							if (bet.winnerUID == User.id){
-								SendSuccess("Won Bet", "Congratulations, you won the bet!");
+								SendSuccess("Won Bet", "<span class='glyphicon glyphicon-bullhorn'></span> Congratulations, you won the bet! <span class='glyphicon glyphicon-thumbs-up'></span>");
 							}
 							setTimeout(function(){
 								$(item).parent().remove();
