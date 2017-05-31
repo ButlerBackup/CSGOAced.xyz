@@ -323,24 +323,8 @@ jQuery(document).ready(function($){
 	socket.on('display bet', function(bet){
 		$(GetBetHTML(bet)).appendTo("#Bets").hide().fadeIn().find('.JoinBet').click(function(){
 			var BetID = $(this).attr("data-BetID");
-			$.confirm({
-				closeIcon: true,
-				closeIconClass: 'fa fa-close',
-				backgroundDismiss: true,
-				title: 'Place Bet!',
-				content: 'Are you sure?',
-				buttons: {
-					confirm: {
-						btnClass: 'btn-green',
-						keys: ['enter'],
-						action: function(){
-							socket.emit('join bet', BetID);
-						}
-					},
-					cancel: {
-						btnClass: 'btn-red'
-					}
-				}
+			$(this).text('Ready? ').append('<span class="glyphicon glyphicon-ok-sign"></span>').click(function(){
+				socket.emit('join bet', BetID);
 			});
 		});
 	});
