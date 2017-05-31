@@ -532,9 +532,13 @@ jQuery(document).ready(function($){
 
 			function sendMessage(text){
 				var $messages, message;
-				if (text.trim() === '') {
-					return;
+				if (text.trim() === '') { return false; }
+
+				if (text.length > 50){
+					SendAlert("Message Lenght", "You can only write 50 characters");
+					return false;
 				}
+
 				$('.message_input').val('');
 
 				socket.emit('message', text);
