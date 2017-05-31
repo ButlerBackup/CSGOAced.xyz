@@ -147,6 +147,10 @@ jQuery(document).ready(function($){
 		socket.emit('freecoins');
 	});
 
+	$('.refresh_prices').on('click', function () {
+		socket.emit('refresh prices');
+	});
+
 	$('.history').on('click', function () {
 		socket.emit('coinflip history');
 	});

@@ -32,7 +32,7 @@
 							<?php if($_SESSION['Role'] == "Admin"){ ?>
 							<li class="dropdown-header">Admin Menu</li>
 							<li><a href="<?php echo $Link->Website . '?'. $Page->Admin; ?>"><span class="glyphicon glyphicon-tower"></span> Admin</a></li>
-							<li><a href="<?php echo $Link->Website . '?'. $Page->RefreshPrices; ?>"><span class="glyphicon glyphicon-refresh"></span> Refresh Prices</a></li>
+							<li><a class="refresh_prices"><span class="glyphicon glyphicon-refresh"></span> Refresh Prices</a></li>
 							<li class="dropdown-header">User Menu</li>
 							<?php } ?>
 							<li><a class="history"><span class="glyphicon glyphicon-list-alt"></span> History</a></li>
