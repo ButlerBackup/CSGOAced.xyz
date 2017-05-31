@@ -195,6 +195,7 @@ jQuery(document).ready(function($){
 
 	socket.on('coinflip history', function(history){
 		var output = ""	;
+		var total = 0;
 
 		for (var bet in history){
 			output += '<tr>' +
@@ -202,6 +203,8 @@ jQuery(document).ready(function($){
 						'<td>' + history[bet].Ammount + '</td>' +
 						'<td>' + history[bet].CreateTimestamp.replace('T', ' ').replace('.000Z', '') + '</td>' +
 					'</tr>';
+
+			total += history[bet].Ammount;
 		}
 
 		console.log(output);
@@ -218,7 +221,8 @@ jQuery(document).ready(function($){
 				'<tbody>' +
 					output +
 				'</tbody>' +
-			'</table>');
+			'</table>' +
+			'<h4>Total:  ' + total + ' Coins</h4>');
 	});
 
 	/*   _____       _      ______ _ _       
