@@ -253,6 +253,16 @@ jQuery(document).ready(function($){
 			return false;
 		}
 
+		if (coins < 50){
+			SendAlert("Not Enought Coins!", "Minimum ammount is 50 coins!");
+			return false;
+		}
+
+		if (coins > 100000){
+			SendAlert("Too Many Coins!", "Maximum ammount is 100000 coins!");
+			return false;
+		}
+
 		socket.emit('place bet', coins);
 	});
 
