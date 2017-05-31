@@ -346,7 +346,7 @@ jQuery(document).ready(function($){
 	});
 
 	function GetBetHTML(bet){
-		return '<div class="col-xs-6 col-md-3"><div class="thumbnail"><div class="coin-flip-cont"><div class="coin"><div class="front" style="background: url(' + bet.avatar1 + '); background-size: 100%;"></div><div class="back" style="background: url(' + bet.avatar2 + '); background-size: 100%;"></div></div></div><div class="caption"><h4>' + bet.ammount + ' Coins</h4><button type="button" class="btn btn-info btn-md ' + ((bet.isFinished) ? 'OnGoingBet' : 'JoinBet') + '" data-betid="' + bet.id + '">' + ((bet.isFinished) ? 'Ongoing Bet' : 'Join Bet') + ' <span class="glyphicon ' + ((bet.isFinished) ? 'glyphicon-refresh glyphicon-refresh-animate' : 'glyphicon-transfer') + '"></span></button></div></div></div>';
+		return '<div class="col-xs-6 col-md-3"><div class="thumbnail"><div class="coin-flip-cont"><div class="coin"><div class="front" style="background: url(' + bet.avatar1 + '); background-size: 100%;"></div><div class="back" style="background: url(' + bet.avatar2 + '); background-size: 100%;"></div></div></div><div class="caption"><h4>' + bet.ammount + ' Coins</h4><button type="button" class="btn btn-info btn-md ' + ((bet.isFinished) ? 'OnGoingBet' : 'JoinBet') + '" data-betid="' + bet.id + '">' + ((bet.isFinished) ? 'Ongoing Bet' : 'Join Bet') + ' <span class="glyphicon ' + ((bet.isFinished) ? 'glyphicon-refresh glyphicon-refresh-animate' : 'glyphicon-flash') + '"></span></button></div></div></div>';
 	}
 
 	/*  ______                     _ _   
