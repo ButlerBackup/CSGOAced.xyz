@@ -52,12 +52,6 @@ main{
 
 /* Coinflip */
 
-.glyphicon-refresh-animate {
-	-animation: spin .7s infinite linear;
-	-webkit-animation: spinWebkit .7s infinite linear;
-	-moz-animation: spinMoz .7s infinite linear;
-}
-
 @-webkit-keyframes spinWebkit {
 	from { -webkit-transform: rotate(0deg);}
 	to { -webkit-transform: rotate(360deg);}
