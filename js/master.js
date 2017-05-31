@@ -323,9 +323,13 @@ jQuery(document).ready(function($){
 	socket.on('display bet', function(bet){
 		$(GetBetHTML(bet)).appendTo("#Bets").hide().fadeIn().find('.JoinBet').click(function(){
 			var BetID = $(this).attr("data-BetID");
-			$(this).text('Ready? ').append('<span class="glyphicon glyphicon-ok-sign"></span>').click(function(){
-				socket.emit('join bet', BetID);
-			});
+			var ConfirmMSG = "Ready? ";
+
+			if ($(this).text() != ConfirmMSG){
+				$(this).text(ConfirmMSG).append('<span class="glyphicon glyphicon-ok-sign"></span>').click(function(){
+					socket.emit('join bet', BetID);
+				});
+			}
 		});
 	});
 
