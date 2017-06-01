@@ -522,6 +522,20 @@ jQuery(document).ready(function($){
 			socket.on('message', function(msg){
 				$messages = $('.messages');
 				message_side = message_side === 'left' ? 'right' : 'left';
+
+				msg.text = msg.text.replace(new RegExp(":kappa:", 'g'), '<img src="https://bubble-at4vegnhqpi2zkmsnjd.stackpathdns.com/img/emotes/kappa.png">')
+				msg.text = msg.text.replace(new RegExp(":rip:", 'g'), '<img src="https://bubble-at4vegnhqpi2zkmsnjd.stackpathdns.com/img/emotes/rip.png">');
+				msg.text = msg.text.replace(new RegExp(":ezskins:", 'g'), '<img src="https://bubble-at4vegnhqpi2zkmsnjd.stackpathdns.com/img/emotes/ezskins.png">');
+				msg.text = msg.text.replace(new RegExp(":hype:", 'g'), '<img src="https://bubble-at4vegnhqpi2zkmsnjd.stackpathdns.com/img/emotes/hype.png">');
+				msg.text = msg.text.replace(new RegExp(":money:", 'g'), '<img src="https://bubble-at4vegnhqpi2zkmsnjd.stackpathdns.com/img/emotes/money.png">');
+				msg.text = msg.text.replace(new RegExp(":snipe:", 'g'), '<img src="https://bubble-at4vegnhqpi2zkmsnjd.stackpathdns.com/img/emotes/snipe.png">');
+				msg.text = msg.text.replace(new RegExp(":gg:", 'g'), '<img src="https://bubble-at4vegnhqpi2zkmsnjd.stackpathdns.com/img/emotes/gg.png">');
+				msg.text = msg.text.replace(new RegExp(":gaben:", 'g'), '<img src="https://bubble-at4vegnhqpi2zkmsnjd.stackpathdns.com/img/emotes/gaben.png">');
+				msg.text = msg.text.replace(new RegExp(":pigeon:", 'g'), '<img src="https://bubble-at4vegnhqpi2zkmsnjd.stackpathdns.com/img/emotes/pigeon.png">');
+				msg.text = msg.text.replace(new RegExp(":trump:", 'g'), '<img src="https://bubble-at4vegnhqpi2zkmsnjd.stackpathdns.com/img/emotes/trump.png">');
+				msg.text = msg.text.replace(new RegExp(":wall:", 'g'), '<img src="https://bubble-at4vegnhqpi2zkmsnjd.stackpathdns.com/img/emotes/wall.png">');
+				msg.text = msg.text.replace(new RegExp(":kappa:", 'g'), '<img src="https://bubble-at4vegnhqpi2zkmsnjd.stackpathdns.com/img/emotes/kappa.png">');
+
 				message = new Message({
 					text: msg.text,
 					message_side: message_side
