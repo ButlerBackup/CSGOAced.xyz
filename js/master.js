@@ -16,7 +16,11 @@ jQuery(document).ready(function($){
 
 	var RefClipboard = new Clipboard('.refbtn', {
 		text: function(trigger) {
-			return "https://www.csgoaced.xyz/?r=" + $("#refcode").val();
+			txt = $("#refcode").val();
+			if (txt == ""){
+				txt = $("#refcode").attr('placeholder');
+			}
+			return "https://www.csgoaced.xyz/?r=" + txt;
 		}
 	});
 
