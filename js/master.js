@@ -215,10 +215,9 @@ jQuery(document).ready(function($){
 			total += history[bet].Ammount;
 		}
 
-		console.log(output);
-
-		SendSuccess("Coinflip Win History", 
-		'<table class="table table-hover table-striped table-bordered">' +
+		SendSuccess("Coinflip Win History",
+		'<div id="CoinFlipHistory">' +
+			'<table class="table table-hover table-striped table-bordered fixed_headers">' +
 				'<thead>' +
 					'<tr>' +
 						'<th>ID</th>' +
@@ -230,7 +229,8 @@ jQuery(document).ready(function($){
 					output +
 				'</tbody>' +
 			'</table>' +
-			'<h4>Total:  ' + total + ' Coins</h4>');
+		'</div>' +
+		'<h4>Total: ' + total + ' Coins</h4>');
 	});
 
 	/*   _____       _      ______ _ _       

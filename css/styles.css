@@ -6,6 +6,10 @@ main{
 	margin-top: 50px;
 }
 
+#CoinFlipHistory{
+	overflow-y: auto;
+	max-height: 509px;
+}
 
 /* Inventory */
 
