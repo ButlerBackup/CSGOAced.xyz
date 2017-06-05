@@ -48,6 +48,14 @@ jQuery(document).ready(function($){
 		}, 400);
 	});
 
+	socket.on('update coins', function(coins){
+		$("#Coins").fadeOut(50);
+
+		setTimeout(function(){
+			$("#Coins").html(coins + " Coins").hide().fadeIn();
+		}, 50);
+	});
+
 	socket.on('auth user', function(){
 		$("#PlaceBets").html("");
 		$("#OnGoingBets").html("");
