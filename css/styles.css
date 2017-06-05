@@ -46,7 +46,7 @@ main{
 	margin-top: 5px;
 }
 
-.deposit h3{
+#depositBox h3, #Wallet h3{
 	margin-left: 10px;
 }
 
