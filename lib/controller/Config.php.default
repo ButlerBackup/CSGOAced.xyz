@@ -10,6 +10,7 @@ $Link = (object) array( 'Website' => 'https://www.csgoaced.xyz/',
 						'SteamGroup' => 'https://www.steamcommunity.com/groups/CSGOAced_xyz/',
 						'Instagram' => 'https://www.instagram.com/csgoaced.xyz/',
 						'GitHub' => 'https://www.github.com/CSGOAced/',
+						'Issues' => 'https://github.com/CSGOAced/CSGOAced.xyz/issues',
 						'Discord' => 'https://discord.gg/uzjBqxX',
 						'NodePath' => 'https://www.csgoaced.xyz/',
 						'Mail' => 'admin@csgoaced.xyz');
