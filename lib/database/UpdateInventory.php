@@ -37,5 +37,5 @@ if($JSONInventory != null){
 		}
 	}
 }else{
-	echo 'Set your inventory to public!';
+	//Inventory Not Public
 }
