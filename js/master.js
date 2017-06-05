@@ -319,6 +319,8 @@ jQuery(document).ready(function($){
 
 							if (bet.winnerUID == User.id){
 								SendSuccess("Won Bet", "<span class='glyphicon glyphicon-bullhorn'></span> Congratulations, you won the bet! <span class='glyphicon glyphicon-thumbs-up'></span>");
+								var audio = new Audio('snd/win.mp3');
+								audio.play();
 							}
 							setTimeout(function(){
 								$(item).parent().remove();
