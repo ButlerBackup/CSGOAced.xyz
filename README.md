@@ -1,5 +1,6 @@
 # CSGOAced.xyz
 
+![CSGOAced.xyz](https://cloud.githubusercontent.com/assets/14254842/26793504/1d5c3814-4a16-11e7-9386-8cc69239af6e.png)
 [CSGOAced.xyz](https://www.csgoaced.xyz) is a Betting Website In Development
 
 ## How To Setup
