@@ -1,6 +1,6 @@
 <?php
 // Update Inventory
-$JSONInventory = file_get_contents('http://steamcommunity.com/inventory/'.$steamprofile['steamid'].'/730/2?l=english');
+$JSONInventory = file_get_contents('https://steamcommunity.com/inventory/'.$steamprofile['steamid'].'/730/2?l=english');
 
 if($JSONInventory != null){
 
