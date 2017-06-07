@@ -438,7 +438,7 @@ jQuery(document).ready(function($){
 		var output = "";
 
 		for (var i in InventoryList){
-			output += '<div class="col-xs-6 col-md-3"><div class="thumbnail"><img src="' + InventoryList[i].icon_url + '" alt="' + InventoryList[i].market_name + '"><h5>' + InventoryList[i].price + '</h5> <div class="caption"> <p>' + InventoryList[i].market_name + '</p>	<button type="button" class="btn btn-info btn-md addCart" data-name="' + InventoryList[i].market_name + '" data-icon="'+InventoryList[i].icon_url+'" data-price="'+InventoryList[i].price+'" data-assetID="' + InventoryList[i].assetID + '" data-classID="' + InventoryList[i].classID + '">Add to Cart <span class="glyphicon glyphicon-shopping-cart"></span></button></div></div></div>';
+			output += '<div class="col-xs-6 col-md-3"><div class="thumbnail"><img src="' + InventoryList[i].icon_url + '" alt="' + InventoryList[i].market_name + '"><h5>' + InventoryList[i].price + '</h5> <div class="caption"> <p>' + InventoryList[i].market_name + '</p>	<button type="button" class="btn btn-info btn-md addCart" data-name="' + InventoryList[i].market_name + '" data-icon="'+InventoryList[i].icon_url+'" data-price="'+InventoryList[i].price+'" data-assetID="' + InventoryList[i].assetID + '" data-classID="' + InventoryList[i].classID + '">Deposit <span class="glyphicon glyphicon-shopping-cart"></span></button></div></div></div>';
 		}
 		
 		$("#inventory").html(output);
