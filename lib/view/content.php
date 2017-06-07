@@ -8,7 +8,7 @@
 		<div class="row">
 			<div class="alert alert-warning fade in">
 				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-				<span class="glyphicon glyphicon-bullhorn"></span> To be launched on: <strong>1st July 2017</strong>
+				<span class="glyphicon glyphicon-bullhorn"></span> To be launched on: <strong>16th July 2017</strong>
 			</div>
 		</div>
 		<div class="row">
