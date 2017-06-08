@@ -8,8 +8,9 @@ if(!isset($_SESSION['UID'])){
 	$User = $sth->fetchAll();
 
 	if ($User == NULL){
-		$sth = $conn->prepare("INSERT INTO Users (Steam64, Avatar) VALUES (:Steam64, :Avatar);");
+		$sth = $conn->prepare("INSERT INTO Users (Steam64, Name, Avatar) VALUES (:Steam64, :Name, :Avatar);");
 		$sth->bindParam(':Steam64', $steamprofile['steamid']);
+		$sth->bindParam(':Name', $steamprofile['personaname']);
 		$sth->bindParam(':Avatar', $steamprofile['avatarfull']);
 		$sth->execute();
 
@@ -19,8 +20,9 @@ if(!isset($_SESSION['UID'])){
 
 		$NewUser = true;
 	}else{
-		$sth = $conn->prepare("UPDATE Users SET Avatar = :Avatar WHERE Steam64 = :Steam64;");
+		$sth = $conn->prepare("UPDATE Users SET Name = :Name, Avatar = :Avatar WHERE Steam64 = :Steam64;");
 		$sth->bindParam(':Avatar', $steamprofile['avatarfull']);
+		$sth->bindParam(':Name', $steamprofile['personaname']);
 		$sth->bindParam(':Steam64', $steamprofile['steamid']);
 		$sth->execute();
 	}

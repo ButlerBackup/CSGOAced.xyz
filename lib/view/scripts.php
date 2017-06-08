@@ -24,8 +24,6 @@
 
 	function GetUser(){
 		return (new User("<?php echo (isset($_SESSION['UID']) ? $_SESSION['UID'] : ""); ?>",
-						"<?php echo (isset($steamprofile) ? $steamprofile['personaname'] : ""); ?>",
-						"<?php echo (isset($steamprofile) ? $steamprofile['avatarfull'] : ""); ?>",
 						"<?php echo (isset($_SESSION['PrivateKey']) ? $_SESSION['PrivateKey'] : ""); ?>"));
 	}
 
