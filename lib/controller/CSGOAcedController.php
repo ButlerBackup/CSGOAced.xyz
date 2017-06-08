@@ -3,6 +3,8 @@ session_start();
 
 require_once ("lib/controller/Config.php");
 
+if (isset($_GET['r'])){ $_SESSION['referal'] = $_GET['r']; }
+
 if (isset($_GET['logout'])){
 	require_once ('lib/database/Connect.php');
 	require_once ('lib/database/Logout.php');

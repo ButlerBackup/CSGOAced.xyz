@@ -30,6 +30,22 @@ if(!isset($_SESSION['UID'])){
 	$_SESSION['UID'] = $User[0][0];
     $_SESSION['Role'] = $User[0][1];
 
+	
+	if ($NewUser == true && isset($_SESSION['referal'])){
+		$sth = $conn->prepare("SELECT ID FROM Users where RefCode = :ReferalCode");
+		$sth->execute(array(':ReferalCode' => $_SESSION['referal']));
+		$ReferalID = $sth->fetchAll();
+
+		if ($ReferalID != NULL){
+			echo $_SESSION['UID'] . $ReferalID[0]['ID'] . $_SESSION['referal'];
+			$sth = $conn->prepare("INSERT INTO ReferedUsersHistory (UserID, ReferalID, ReferalCode) VALUES (:UID, :ReferalID, :ReferalCode);");
+			$sth->bindParam(':UID', $_SESSION['UID']);
+			$sth->bindParam(':ReferalID', $ReferalID[0]['ID']);
+			$sth->bindParam(':ReferalCode', $_SESSION['referal']);
+			$sth->execute();
+		}
+	}
+
 	$sth = $conn->prepare("INSERT INTO LoginHistory (UserID, IP) VALUES (:UID, :IP);");
 	$sth->bindParam(':UID', $_SESSION['UID']);
 	$sth->bindParam(':IP', $_SERVER['REMOTE_ADDR']);
