@@ -190,6 +190,11 @@ jQuery(document).ready(function($){
 							$.alert('Provide a valid Referal Code');
 							return false;
 						}
+						if (RefCode.length > 7){
+							SendAlert('Invalid Referal Code', 'Maximum Referal Code Length is 7 Characters');
+							return false;
+						}
+
 						socket.emit('referal', RefCode);
 					}
 				},
