@@ -15,10 +15,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.6.1/clipboard.min.js"></script>
 
 <script type="text/javascript"> 
-	var User = function(id, name, avatar, PrivateKey){
+	var User = function(id, PrivateKey){
 		this.id = id;
-		this.name = name;
-		this.avatar = avatar;
 		this.PrivateKey = PrivateKey;
 	}
 
