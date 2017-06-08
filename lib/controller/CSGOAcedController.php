@@ -5,8 +5,6 @@ require_once ("lib/controller/Config.php");
 
 if (isset($_GET['r'])){ $_SESSION['referal'] = strtolower($_GET['r']); }
 
-echo $_SESSION['referal'];
-
 if (isset($_GET['logout'])){
 	require_once ('lib/database/Connect.php');
 	require_once ('lib/database/Logout.php');
