@@ -132,8 +132,8 @@ jQuery(document).ready(function($){
 					btnClass: 'btn-blue',
 					action: function () {
 						var TradeURL = this.$content.find('.trade_url').val();
-						if(!TradeURL || !(/steamcommunity\.com\/tradeoffer\/new\/\?partner=[0-9]*&token=[a-zA-Z0-9_-]*/i.exec(TradeURL))){
-							$.alert('Provide a valid Trade URL');
+						if(!TradeURL || TradeURL.length > 80 || !(/steamcommunity\.com\/tradeoffer\/new\/\?partner=[0-9]*&token=[a-zA-Z0-9_-]*/i.exec(TradeURL))){
+							SendAlert('Invalid Trade URL', 'Provide a valid Trade URL');
 							return false;
 						}
 						socket.emit('trade_url', TradeURL);
