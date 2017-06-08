@@ -22,3 +22,9 @@ $Page = (object) array( 'Home' => 'home',
 						'RefreshPrices' => 'refreshprices',
 						'UpdateInventory' => 'updateinventory',
 						'Logout' => 'logout');
+
+$Roles = (object) array('Normal' => 'Normal',
+						'Moderator' => 'Moderator',
+						'Admin' => 'Admin',
+						'Bot' => 'Bot',
+						'Banned' => 'Banned');
