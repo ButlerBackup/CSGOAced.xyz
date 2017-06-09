@@ -30,4 +30,4 @@
 </script>
 
 <!-- CSGOAced.xyz -->
-<script data-cfasync="false" type="text/javascript" src="<?php echo $Link->Website . 'js/master.js'; ?>"></script>
+<script data-cfasync="false" type="text/javascript" src="js/master.js"></script>
