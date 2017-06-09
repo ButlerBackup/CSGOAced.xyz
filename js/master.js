@@ -115,6 +115,24 @@ jQuery(document).ready(function($){
 	| |\  | (_| |\ V /| |_) | (_| | |   
 	\_| \_/\__,_| \_/ |_.__/ \__,_|_|   
 	*/
+	$('.admin').on('click', function () {
+		$.confirm({
+			title: '',
+			content: 'url:index.php?p=admin',
+			columnClass: 'medium col-md-12',
+			closeIcon: true,
+			closeIconClass: 'fa fa-close',
+			backgroundDismiss: true,
+			buttons: {
+				close: {
+					btnClass: 'btn-red',
+					keys: ['enter'],
+					action: function(){
+					}
+				}
+			}
+		});
+	});
 
 	$('.tradeurl').on('click', function () {
 		$.confirm({
