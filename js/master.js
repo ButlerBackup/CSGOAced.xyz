@@ -103,7 +103,6 @@ jQuery(document).ready(function($){
 		});
 	}
 
-
 	/*
 	 _   _             _                
 	| \ | |           | |               
@@ -325,6 +324,7 @@ jQuery(document).ready(function($){
 								SendSuccess("Won Bet", "<span class='glyphicon glyphicon-bullhorn'></span> Congratulations, you won the bet! <span class='glyphicon glyphicon-thumbs-up'></span>");
 								var audio = new Audio('snd/win.mp3');
 								audio.play();
+								socket.emit('reload coins', User);
 							}
 							setTimeout(function(){
 								$(item).parent().remove();
@@ -374,13 +374,13 @@ jQuery(document).ready(function($){
 		
 		addToInventory(market_name, icon_url, assetID, classID, price);
 	});
-	
+
 	function addToInventory(market_name, icon_url, assetID, classID, price){
 		var item = new Item(market_name, icon_url, assetID, classID, price)
 		
 		InventoryList.push(item);
 	}
-	
+
 	function removeFromInventory(assetID, classID){
 		for (var i in InventoryList){
 			if(InventoryList[i].assetID === assetID && InventoryList[i].classID === classID){
@@ -389,7 +389,7 @@ jQuery(document).ready(function($){
 			}
 		}
 	}
-	
+
 	// Cart 
 	$("#inventory").on("click", ".addCart" , function(event){
 		event.preventDefault();
@@ -403,19 +403,19 @@ jQuery(document).ready(function($){
 		removeFromInventory(assetID, classID);
 		addToCart(market_name, icon_url, assetID, classID, price);
 	});
-	
+
 	$("#depositBox").on("click", ".checkout" , function(event){
 		event.preventDefault();
 
 		SendAlert("Can't Deposit!", "Website not launched yet!");
 	});
-	
+
 	$("#depositBox").on("click", ".clearCart" , function(event){
 		event.preventDefault();
 
 		clearCart();
 	});
-	
+
 	$("#showCart").on("click", ".removeCart" , function(event){
 		event.preventDefault();
 
@@ -448,9 +448,7 @@ jQuery(document).ready(function($){
 		$("#inventory").html(output);
 	}
 
-	
 	// Cart Functions
-
 
 	//Add Item
 	function addToCart(market_name, icon_url, assetID, classID, price){
@@ -488,7 +486,7 @@ jQuery(document).ready(function($){
 		
 		displayCart();
 	}
-	
+
 	//Get Coins
 	function getCoins(){
 		var coins = 0;
