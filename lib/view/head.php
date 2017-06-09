@@ -42,5 +42,8 @@
 <!-- Bootstrap -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
+<!-- JQuery Confirm -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.2.0/jquery-confirm.min.css">
+
 <!-- Stylesheet -->
 <link rel="stylesheet" href="<?php echo $Link->Website . "css/styles.css" ;?>">

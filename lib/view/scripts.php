@@ -8,7 +8,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.1/socket.io.js"></script>
 
 <!-- JQuery Confirm -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.2.0/jquery-confirm.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.2.0/jquery-confirm.min.js"></script>
 
 <!-- Clipboard.js -->
@@ -31,4 +30,4 @@
 </script>
 
 <!-- CSGOAced.xyz -->
-<script type="text/javascript" src="<?php echo $Link->Website . 'js/master.js'; ?>"></script>
+<script data-cfasync="false" type="text/javascript" src="<?php echo $Link->Website . 'js/master.js'; ?>"></script>
