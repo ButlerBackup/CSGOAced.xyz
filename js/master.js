@@ -291,7 +291,7 @@ jQuery(document).ready(function($){
 	});
 
 	socket.on('show place bet', function(Avatar){
-		socket.emit('reload coins', User);
+		socket.emit('reload coins');
 		var output = '<div class="col-xs-6 col-md-3"><div class="thumbnail"><div class="coin-flip-cont"><div class="coin"><div class="front" style="background: url(' + Avatar + '); background-size: 100%;"></div></div></div><div class="caption"><div class="input-group input-group-sm"><input type="text" class="form-control" placeholder="Coins" aria-describedby="basic-addon2"></div><button type="button" class="btn btn-info btn-md PlaceBet">Place Bet <span class="glyphicon glyphicon-fire"></span></button></div></div></div>';
 		$("#PlaceBets").html(output);
 	});
@@ -325,7 +325,7 @@ jQuery(document).ready(function($){
 								SendSuccess("Won Bet", "<span class='glyphicon glyphicon-bullhorn'></span> Congratulations, you won the bet! <span class='glyphicon glyphicon-thumbs-up'></span>");
 								var audio = new Audio('snd/win.mp3');
 								audio.play();
-								socket.emit('reload coins', User);
+								socket.emit('reload coins');
 							}
 							setTimeout(function(){
 								$(item).parent().remove();
