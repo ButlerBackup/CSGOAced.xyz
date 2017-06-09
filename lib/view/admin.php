@@ -6,15 +6,18 @@
 	</div>
 	<div class="row">
 		<div class="col-xs-12 col-sm-8">
-			<h1>Test!</h1>
+			<div class="page-header">
+				<h2><span class="glyphicon glyphicon-dashboard"></span> Dashboard</h2>
+			</div>
 		</div>
 		<div class="col-xs-12 col-sm-4">
-			<h1>Options!</h1>
-			<button class="btn btn-primary btn-md refresh_prices"><span class="glyphicon glyphicon-refresh"></span> Refresh Prices</button>
+			<div class="page-header">
+				<h2><span class="glyphicon glyphicon-wrench"> Options</h2>
+			</div>
+			<button class="btn btn-warning btn-lg refresh_prices"><span class="glyphicon glyphicon-refresh"></span> Refresh Prices</button>
 		</div>
 	</div>
 </div>
-
 <?php
 
 
