@@ -74,6 +74,8 @@ jQuery(document).ready(function($){
 			backgroundDismiss: true,
 			title: Title,
 			content: Content,
+			animation: 'RotateXR',
+			closeAnimation: 'RotateXR',
 			buttons: {
 				ok: {
 					btnClass: 'btn-red',
@@ -92,6 +94,8 @@ jQuery(document).ready(function($){
 			backgroundDismiss: true,
 			title: Title,
 			content: Content,
+			animation: 'RotateXR',
+			closeAnimation: 'RotateXR',
 			buttons: {
 				ok: {
 					btnClass: 'btn-green',
