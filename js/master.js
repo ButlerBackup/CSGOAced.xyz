@@ -430,7 +430,11 @@ jQuery(document).ready(function($){
 	$("#depositBox").on("click", ".checkout" , function(event){
 		event.preventDefault();
 
-		SendAlert("Can't Deposit!", "Website not launched yet!");
+		socket.emit('deposit', cart);
+
+		cart = [];
+		displayCart();
+		
 	});
 
 	$("#depositBox").on("click", ".clearCart" , function(event){
