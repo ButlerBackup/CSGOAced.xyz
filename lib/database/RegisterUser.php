@@ -7,6 +7,20 @@ if(!isset($_SESSION['UID'])){
 	$sth->execute(array(':Steam64' => $steamprofile['steamid']));
 	$User = $sth->fetchAll();
 
+	$OwnedGames = json_decode(file_get_contents('http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=' . $Vars->SteamAPIKey . '&steamid=' . $steamprofile['steamid'] . '&format=json'));
+	$ownsCSGO = FALSE;
+	
+	foreach ($OwnedGames->response->games AS $game){
+		if ($game->appid == 730){ $ownsCSGO = TRUE; break; }
+	}
+
+	if ($User == NULL && !$ownsCSGO){
+		session_unset();
+		session_destroy();
+		header('Location: ' . $Link->Website);
+		return;
+	}
+
 	if ($User == NULL){
 		$sth = $conn->prepare("INSERT INTO Users (Steam64, Name, Avatar) VALUES (:Steam64, :Name, :Avatar);");
 		$sth->bindParam(':Steam64', $steamprofile['steamid']);
