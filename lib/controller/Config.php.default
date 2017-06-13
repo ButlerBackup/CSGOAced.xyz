@@ -23,7 +23,7 @@ $Page = (object) array( 'Home' => 'home',
 						'Widthraw' => 'widthraw',
 						'Admin' => 'admin',
 						'FreeCoins' => 'freecoins',
-						'TradeURL' => 'tradeurl'
+						'TradeURL' => 'tradeurl',
 						'UpdateInventory' => 'updateinventory',
 						'Logout' => 'logout');
 
