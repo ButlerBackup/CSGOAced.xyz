@@ -28,10 +28,4 @@ if(isset($_SESSION['steamid'])) {
 	if ($NewUser || isset($_GET[$Page->UpdateInventory])){
 		require_once ('lib/database/UpdateInventory.php');
 	}
-
-	if($_SESSION['Role'] == "Admin"){
-		if (isset($_GET[$Page->RefreshPrices])){
-			require_once ('lib/database/UpdateSkinPrices.php');
-		}
-	}
 }
