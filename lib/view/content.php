@@ -13,6 +13,9 @@
 		</div>
 		<div class="row">
 			<?php
+			if (!isset($_SESSION['UID'])){
+				require ('lib/view/coinflip.php');
+			}else{
 				switch ($GetPage) {
 					case $Page->Deposit:
 						require ('lib/view/deposit.php');
@@ -23,7 +26,7 @@
 						require ('lib/view/coinflip.php');
 						break;
 				}
-				
+			}
 			?>
 		</div>
 	</div>
