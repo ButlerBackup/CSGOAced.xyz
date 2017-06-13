@@ -405,16 +405,27 @@ jQuery(document).ready(function($){
 				| |                    
 				|_|              */
 
-	//Inventory
-	$('button', $('#inventory')).each(function () {
-		var market_name = $(this).attr("data-name");
-		var icon_url = $(this).attr("data-icon");
-		var assetID = $(this).attr("data-assetID");
-		var classID = $(this).attr("data-classID");
-		var price = Number($(this).attr("data-price"));
-		
-		addToInventory(market_name, icon_url, assetID, classID, price);
-	});
+	$.GetInventory = function(){
+		$("#inventory").load("index.php?p=deposit&c=&m=", function(){
+
+			cart = [];
+			InventoryList = [];
+
+			$('button', $('#inventory')).each(function () {
+				var market_name = $(this).attr("data-name");
+				var icon_url = $(this).attr("data-icon");
+				var assetID = $(this).attr("data-assetID");
+				var classID = $(this).attr("data-classID");
+				var price = Number($(this).attr("data-price"));
+				
+				addToInventory(market_name, icon_url, assetID, classID, price);
+			});
+
+			displayCart();
+		});
+	}
+
+	$.GetInventory();
 
 	function addToInventory(market_name, icon_url, assetID, classID, price){
 		var item = new Item(market_name, icon_url, assetID, classID, price)
@@ -477,6 +488,15 @@ jQuery(document).ready(function($){
 
 		addToInventory(market_name, icon_url, assetID, classID, price);
 		removeFromCart(assetID, classID);
+	});
+
+	$(".update-inventory").on("click", function(event){
+		$.ajax({
+			url: "index.php?updateinventory=&c=&m="
+		}).done(function() {
+			$.GetInventory();
+			SendSuccess("Inventory", "Your inventory was successfully updated!");
+		});
 	});
 
 	function displayCart(){

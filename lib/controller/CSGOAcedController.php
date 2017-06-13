@@ -24,8 +24,4 @@ if(isset($_SESSION['steamid'])) {
 	require_once ('lib/SteamAuth/steamauth/userInfo.php');
 	require_once ('lib/database/Connect.php');
 	require_once ('lib/database/RegisterUser.php');
-
-	if ($NewUser || isset($_GET[$Page->UpdateInventory])){
-		require_once ('lib/database/UpdateInventory.php');
-	}
 }

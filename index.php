@@ -1,13 +1,17 @@
 <?php
 require_once ("lib/controller/CSGOAcedController.php");
 
-if (isset($_GET['m'])){
+if (isset($_GET['m']) && isset($_SESSION['UID'])){
 	if ($GetPage == $Page->Admin && isset($_SESSION['Role']) && $_SESSION['Role'] == "Admin"){
 		require_once ("lib/view/admin.php");
 	}elseif ($GetPage == $Page->TradeURL){
 		require_once ("lib/view/tradeurl.php");
 	}elseif ($GetPage == $Page->FreeCoins){
 		require_once ("lib/view/freecoins.php");
+	}elseif ($GetPage == $Page->Deposit){
+		require_once ('lib/database/ShowInventory.php');
+	}elseif (isset($_GET['updateinventory'])){
+		require_once ('lib/database/UpdateInventory.php');
 	}
 	die();
 }
