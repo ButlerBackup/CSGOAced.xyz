@@ -3,7 +3,9 @@ $Vars = (object) array( 'Name' => 'CSGO Aced',
 						'Description' => 'From Champions to Champions. Join us and start winning skins!',
 						'Keywords' => 'CSGO, cs, counter, strike, skins, dragonlore, karambit, aced, ace, bet, beting, gamble, gambling',
 						'FriendlyURL' => 'CSGOAced.xyz',
-						'SteamAPIKey' => '');
+						'SteamAPIKey' => '',
+						'CoinsToRefered' => 50,
+						'CoinsToReferer' => 25);
 
 $Link = (object) array( 'Website' => 'https://www.csgoaced.xyz/',
 						'Facebook' => 'https://www.facebook.com/csgoaced/',
