@@ -22,7 +22,8 @@ $Page = (object) array( 'Home' => 'home',
 						'Deposit' => 'deposit',
 						'Widthraw' => 'widthraw',
 						'Admin' => 'admin',
-						'RefreshPrices' => 'refreshprices',
+						'FreeCoins' => 'freecoins',
+						'TradeURL' => 'tradeurl'
 						'UpdateInventory' => 'updateinventory',
 						'Logout' => 'logout');
 

@@ -127,10 +127,6 @@ jQuery(document).ready(function($){
 		ShowFreeCoins();
 	});
 
-	$('.refresh_prices').on('click', function () {
-		socket.emit('refresh prices');
-	});
-
 	$('.history').on('click', function () {
 		ShowCoinflipHistory()
 	});
@@ -156,16 +152,12 @@ jQuery(document).ready(function($){
 
 	socket.on('freecoins', function(ref_code){
 		$.confirm({
+			title: '',
+			content: 'url:index.php?p=freecoins&c=' + ref_code + '&m=',
+			columnClass: 'medium col-md-12',
 			closeIcon: true,
 			closeIconClass: 'fa fa-close',
 			backgroundDismiss: true,
-			title: 'Earn Free Coins!',
-			content: 	'<label for="refcode">Your Referal URL</label>' +
-						'<div class="input-group">' +
-							'<span class="input-group-addon" id="basic-addon3">www.csgoaced.xyz/?r=</span>' +
-							'<input type="text" class="form-control ref_code" id="refcode" aria-describedby="basic-addon3" placeholder="' + ref_code + '">' +
-							'<span class="input-group-btn"> <button class="btn btn-default refbtn" type="button" data-clipboard-target="#refcode"><span class="glyphicon glyphicon-copy"></span></button> </span>' +
-						'</div>',
 			buttons: {
 				formSubmit: {
 					text: 'Submit',
@@ -236,7 +228,7 @@ jQuery(document).ready(function($){
 	function ShowAdminPanel(){
 		$.confirm({
 			title: '',
-			content: 'url:index.php?p=admin',
+			content: 'url:index.php?p=admin&m=',
 			columnClass: 'medium col-md-12',
 			closeIcon: true,
 			closeIconClass: 'fa fa-close',
@@ -252,23 +244,23 @@ jQuery(document).ready(function($){
 		});
 	}
 
+	$.RefreshPrices = function(){
+		socket.emit('refresh prices');
+	}
+
 	function ShowTradeURL(){
 		$.confirm({
+			title: '',
+			content: 'url:index.php?p=tradeurl&m=',
+			columnClass: 'medium col-md-12',
 			closeIcon: true,
 			closeIconClass: 'fa fa-close',
 			backgroundDismiss: true,
-			title: 'Trade URL!',
-			content: '' +
-			'<form action="" class="formName">' +
-			'<div class="form-group">' +
-			'<label>Enter Your <a href="http://steamcommunity.com/profiles/76561198391711336/tradeoffers/privacy#trade_offer_access_url" target="_blank">Trade URL</a></label>' +
-			'<input type="text" placeholder="Your Trade URl" class="trade_url form-control" required />' +
-			'</div>' +
-			'</form>',
 			buttons: {
 				formSubmit: {
 					text: 'Submit',
 					btnClass: 'btn-blue',
+					keys: ['enter'],
 					action: function () {
 						var TradeURL = this.$content.find('.trade_url').val();
 						if(!TradeURL || TradeURL.length > 80 || !(/steamcommunity\.com\/tradeoffer\/new\/\?partner=[0-9]*&token=[a-zA-Z0-9_-]*/i.exec(TradeURL))){
@@ -281,15 +273,6 @@ jQuery(document).ready(function($){
 				cancel: function () {
 					//close
 				},
-			},
-			onContentReady: function () {
-				// bind to events
-				var jc = this;
-				this.$content.find('form').on('submit', function (e) {
-					// if the user submits the form by pressing enter in the field.
-					e.preventDefault();
-					jc.$$formSubmit.trigger('click'); // reference the button and click it
-				});
 			}
 		});
 	}

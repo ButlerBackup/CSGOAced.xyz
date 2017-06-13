@@ -37,7 +37,6 @@
 							<li><a class="history"><span class="glyphicon glyphicon-list-alt"></span> History</a></li>
 							<li><a class="freecoins"><span class="glyphicon glyphicon-gift"></span> Free Coins</a></li>
 							<li><a class="tradeurl"><span class="glyphicon glyphicon-sort"></span> Trade URL</a></li>
-							<li><a class="settings"><span class="glyphicon glyphicon-cog"></span> Settings</a></li>
 							<li><a href="<?php echo $Link->Website . '?'. $Page->Logout; ?>"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
 						</ul>
 					</li>
