@@ -116,68 +116,15 @@ jQuery(document).ready(function($){
 	\_| \_/\__,_| \_/ |_.__/ \__,_|_|   
 	*/
 	$('.admin').on('click', function () {
-		$.confirm({
-			title: '',
-			content: 'url:index.php?p=admin',
-			columnClass: 'medium col-md-12',
-			closeIcon: true,
-			closeIconClass: 'fa fa-close',
-			backgroundDismiss: true,
-			buttons: {
-				close: {
-					btnClass: 'btn-red',
-					keys: ['enter'],
-					action: function(){
-					}
-				}
-			}
-		});
+		ShowAdminPanel();
 	});
 
 	$('.tradeurl').on('click', function () {
-		$.confirm({
-			closeIcon: true,
-			closeIconClass: 'fa fa-close',
-			backgroundDismiss: true,
-			title: 'Trade URL!',
-			content: '' +
-			'<form action="" class="formName">' +
-			'<div class="form-group">' +
-			'<label>Enter Your <a href="http://steamcommunity.com/profiles/76561198391711336/tradeoffers/privacy#trade_offer_access_url" target="_blank">Trade URL</a></label>' +
-			'<input type="text" placeholder="Your Trade URl" class="trade_url form-control" required />' +
-			'</div>' +
-			'</form>',
-			buttons: {
-				formSubmit: {
-					text: 'Submit',
-					btnClass: 'btn-blue',
-					action: function () {
-						var TradeURL = this.$content.find('.trade_url').val();
-						if(!TradeURL || TradeURL.length > 80 || !(/steamcommunity\.com\/tradeoffer\/new\/\?partner=[0-9]*&token=[a-zA-Z0-9_-]*/i.exec(TradeURL))){
-							SendAlert('Invalid Trade URL', 'Provide a valid Trade URL');
-							return false;
-						}
-						socket.emit('trade_url', TradeURL);
-					}
-				},
-				cancel: function () {
-					//close
-				},
-			},
-			onContentReady: function () {
-				// bind to events
-				var jc = this;
-				this.$content.find('form').on('submit', function (e) {
-					// if the user submits the form by pressing enter in the field.
-					e.preventDefault();
-					jc.$$formSubmit.trigger('click'); // reference the button and click it
-				});
-			}
-		});
+		ShowTradeURL();
 	});
 
 	$('.freecoins').on('click', function () {
-		socket.emit('freecoins');
+		ShowFreeCoins();
 	});
 
 	$('.refresh_prices').on('click', function () {
@@ -185,7 +132,26 @@ jQuery(document).ready(function($){
 	});
 
 	$('.history').on('click', function () {
-		socket.emit('coinflip history');
+		ShowCoinflipHistory()
+	});
+
+	socket.on('tradeurl', function(history){
+		$.confirm({
+			closeIcon: true,
+			closeIconClass: 'fa fa-close',
+			backgroundDismiss: true,
+			title: 'Setup Your Trade URL!',
+			content: 'You need to setup your trade url before trading!',
+			buttons: {
+				ok: {
+					text: 'Ok',
+					btnClass: 'btn-green',
+					action: function () {
+						ShowTradeURL();
+					}
+				}
+			}
+		});
 	});
 
 	socket.on('freecoins', function(ref_code){
@@ -266,6 +232,75 @@ jQuery(document).ready(function($){
 		'</div>' +
 		'<h4>Total: ' + total + ' Coins</h4>');
 	});
+
+	function ShowAdminPanel(){
+		$.confirm({
+			title: '',
+			content: 'url:index.php?p=admin',
+			columnClass: 'medium col-md-12',
+			closeIcon: true,
+			closeIconClass: 'fa fa-close',
+			backgroundDismiss: true,
+			buttons: {
+				close: {
+					btnClass: 'btn-red',
+					keys: ['enter'],
+					action: function(){
+					}
+				}
+			}
+		});
+	}
+
+	function ShowTradeURL(){
+		$.confirm({
+			closeIcon: true,
+			closeIconClass: 'fa fa-close',
+			backgroundDismiss: true,
+			title: 'Trade URL!',
+			content: '' +
+			'<form action="" class="formName">' +
+			'<div class="form-group">' +
+			'<label>Enter Your <a href="http://steamcommunity.com/profiles/76561198391711336/tradeoffers/privacy#trade_offer_access_url" target="_blank">Trade URL</a></label>' +
+			'<input type="text" placeholder="Your Trade URl" class="trade_url form-control" required />' +
+			'</div>' +
+			'</form>',
+			buttons: {
+				formSubmit: {
+					text: 'Submit',
+					btnClass: 'btn-blue',
+					action: function () {
+						var TradeURL = this.$content.find('.trade_url').val();
+						if(!TradeURL || TradeURL.length > 80 || !(/steamcommunity\.com\/tradeoffer\/new\/\?partner=[0-9]*&token=[a-zA-Z0-9_-]*/i.exec(TradeURL))){
+							SendAlert('Invalid Trade URL', 'Provide a valid Trade URL');
+							return false;
+						}
+						socket.emit('trade_url', TradeURL);
+					}
+				},
+				cancel: function () {
+					//close
+				},
+			},
+			onContentReady: function () {
+				// bind to events
+				var jc = this;
+				this.$content.find('form').on('submit', function (e) {
+					// if the user submits the form by pressing enter in the field.
+					e.preventDefault();
+					jc.$$formSubmit.trigger('click'); // reference the button and click it
+				});
+			}
+		});
+	}
+
+	function ShowFreeCoins(){
+		socket.emit('freecoins');
+	}
+
+	function ShowCoinflipHistory(){
+		socket.emit('coinflip history');
+	}
 
 	/*   _____       _      ______ _ _       
 		/  __ \     (_)     |  ___| (_)      
@@ -429,6 +464,11 @@ jQuery(document).ready(function($){
 
 	$("#depositBox").on("click", ".checkout" , function(event){
 		event.preventDefault();
+
+		if (cart.length == 0){
+			SendAlert('No selected items', 'Add items to your cart!');
+			return false;
+		}
 
 		socket.emit('deposit', cart);
 
