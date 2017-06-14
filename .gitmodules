@@ -1,3 +1,6 @@
 [submodule "lib/SteamAuth"]
 	path = lib/SteamAuth
 	url = https://github.com/CSGOAced/SteamAuthentication
+[submodule "js/animateNumber"]
+	path = js/animateNumber
+	url = https://github.com/aishek/jquery-animateNumber
