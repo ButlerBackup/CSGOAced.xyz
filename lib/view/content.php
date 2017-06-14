@@ -8,7 +8,11 @@
 		<div class="row">
 			<div class="alert alert-warning fade in">
 				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-				<span class="glyphicon glyphicon-bullhorn"></span> To be launched on: <strong>1st July 2017</strong>
+				<span class="glyphicon glyphicon-time"></span> Officially Released on: <strong>1st July 2017</strong>
+			</div>
+			<div class="alert alert-warning fade in">
+				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+				<span class="glyphicon glyphicon-bullhorn"></span> Wanna be a <strong>beta tester</strong>? Contact us via our <a href="https://discord.gg/uzjBqxX"><strong>Discord Server</strong></a>! <span class="glyphicon glyphicon-thumbs-up"></span>
 			</div>
 		</div>
 		<div class="row">
