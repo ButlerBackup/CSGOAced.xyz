@@ -4,18 +4,46 @@
 			<div class="page-header">
 				<h3><span class="glyphicon glyphicon-bell"> Earn Free Coins!</h3>
 			</div>
-            <p>You and your friend get 25 and 50 coins when you use the link bellow!</p>
+			<p>You and your friend get 25 and 50 coins when you use the link bellow!</p>
 			<label for="refcode">Choose Your Referal URL!</label>
-            <div class="input-group">
-                <span class="input-group-addon" id="basic-addon3">www.csgoaced.xyz/?r=</span>
-                <input type="text" class="form-control ref_code" id="refcode" aria-describedby="basic-addon3" placeholder="<?php if (isset($_GET['c'])){ echo $_GET['c']; } ?>">
-                <span class="input-group-btn"> <button class="btn btn-default refbtn" type="button" data-clipboard-target="#refcode"><span class="glyphicon glyphicon-copy"></span></button> </span>
-            </div>
+			<div class="input-group">
+				<span class="input-group-addon" id="basic-addon3">www.csgoaced.xyz/?r=</span>
+				<input type="text" class="form-control ref_code" id="refcode" aria-describedby="basic-addon3" placeholder="<?php if (isset($_GET['c'])){ echo $_GET['c']; } ?>">
+				<span class="input-group-btn"> <button class="btn btn-default refbtn" type="button" data-clipboard-target="#refcode"><span class="glyphicon glyphicon-copy"></span></button> </span>
+			</div>
 		</div>
 		<div class="col-xs-12 col-sm-6">
 			<div class="page-header">
-				<h3><span class="glyphicon glyphicon-gift"> Your Refered Users</h3>
+				<h3><span class="glyphicon glyphicon-gift"> Users You Refered</h3>
 			</div>
+			<table class="table table-hover table-striped table-bordered fixed_headers">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Name</th>
+						<th>Code</th>
+						<th>Date</th>
+						</tr>
+					</thead>
+				<tbody>
+					<?php
+						$sth = $conn->prepare("SELECT ReferedUsersHistory.ID AS ID, Users.Name AS Name, ReferedUsersHistory.ReferalCode AS Code, ReferedUsersHistory.RegistrationTimestamp AS Date FROM ReferedUsersHistory INNER JOIN Users ON ReferedUsersHistory.ReferalID = Users.ID AND Users.ID = :UID ORDER BY ReferedUsersHistory.ID;");
+						$sth->execute(array(':UID' => $_SESSION['UID']));
+						$referals = $sth->fetchAll();
+
+						foreach ($referals as $refered) {
+							?>
+								<tr>
+									<td><?php echo $refered['ID'];?></td>
+									<td><?php echo $refered['Name'];?></td>
+									<td><?php echo $refered['Code'];?></td>
+									<td><?php echo $refered['Date'];?></td>
+								</tr>
+							<?php
+						}
+					?>
+				</tbody>
+			</table>
 		</div>
 	</div>
 </div>
