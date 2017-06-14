@@ -28,6 +28,8 @@ jQuery(document).ready(function($){
 		SendSuccess("Text Copied", "Successfully copied text to clipboard!");
 	});
 
+	var Wallet = 0;
+
 	var cart = [];
 
 	var Item = function(market_name, icon_url, assetID, classID, price){
@@ -49,11 +51,15 @@ jQuery(document).ready(function($){
 	});
 
 	socket.on('update coins', function(coins){
-		$("#Coins").fadeOut(50);
-
-		setTimeout(function(){
-			$("#Coins").html(coins + " Coins").hide().fadeIn();
-		}, 50);
+		$('#Coins')
+			.prop('number', Wallet)
+			.animateNumber(
+			{
+				number: coins
+			},
+			200
+		);
+		Wallet = coins;
 	});
 
 	socket.on('auth user', function(){

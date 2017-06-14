@@ -29,5 +29,8 @@
 	} 
 </script>
 
+<!-- JQuery Animate Number -->
+<script type="text/javascript" src="js/animateNumber/jquery.animateNumber.js"></script>
+
 <!-- CSGOAced.xyz -->
 <script data-cfasync="false" type="text/javascript" src="js/master.js"></script>
