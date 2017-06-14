@@ -12,7 +12,7 @@ jQuery(document).ready(function($){
 	*/
 
 	var User = GetUser();
-	var socket = io.connect(GetServer());
+	$.socket = io.connect(GetServer());
 
 	var RefClipboard = new Clipboard('.refbtn', {
 		text: function(trigger) {
@@ -42,7 +42,7 @@ jQuery(document).ready(function($){
 	
 	InventoryList = [];
 
-	socket.on('update online', function(UsersOnline){
+	$.socket.on('update online', function(UsersOnline){
 		$("#Online").fadeOut();
 
 		setTimeout(function(){
@@ -50,7 +50,7 @@ jQuery(document).ready(function($){
 		}, 400);
 	});
 
-	socket.on('update coins', function(coins){
+	$.socket.on('update coins', function(coins){
 		$('#Coins')
 			.prop('number', Wallet)
 			.animateNumber(
@@ -62,14 +62,14 @@ jQuery(document).ready(function($){
 		Wallet = coins;
 	});
 
-	socket.on('auth user', function(){
+	$.socket.on('auth user', function(){
 		$("#PlaceBets").html("");
 		$("#OnGoingBets").html("");
 		$("#Bets").html("");
-		socket.emit('auth user', User);
+		$.socket.emit('auth user', User);
 	});
 
-	socket.on('alert', function(alert){
+	$.socket.on('alert', function(alert){
 		$.alert(alert);
 	});
 
@@ -137,7 +137,7 @@ jQuery(document).ready(function($){
 		ShowCoinflipHistory()
 	});
 
-	socket.on('tradeurl', function(history){
+	$.socket.on('tradeurl', function(history){
 		$.confirm({
 			closeIcon: true,
 			closeIconClass: 'fa fa-close',
@@ -156,7 +156,7 @@ jQuery(document).ready(function($){
 		});
 	});
 
-	socket.on('freecoins', function(ref_code){
+	$.socket.on('freecoins', function(ref_code){
 		$.confirm({
 			title: '',
 			content: 'url:index.php?p=freecoins&c=' + ref_code + '&m=',
@@ -180,7 +180,7 @@ jQuery(document).ready(function($){
 							return false;
 						}
 
-						socket.emit('referal', RefCode);
+						$.socket.emit('referal', RefCode);
 					}
 				},
 				cancel: function () {
@@ -199,7 +199,7 @@ jQuery(document).ready(function($){
 		});
 	});
 
-	socket.on('coinflip history', function(history){
+	$.socket.on('coinflip history', function(history){
 		var output = ""	;
 		var total = 0;
 
@@ -251,7 +251,7 @@ jQuery(document).ready(function($){
 	}
 
 	$.RefreshPrices = function(){
-		socket.emit('refresh prices');
+		$.socket.emit('refresh prices');
 	}
 
 	function ShowTradeURL(){
@@ -273,7 +273,7 @@ jQuery(document).ready(function($){
 							SendAlert('Invalid Trade URL', 'Provide a valid Trade URL');
 							return false;
 						}
-						socket.emit('trade_url', TradeURL);
+						$.socket.emit('trade_url', TradeURL);
 					}
 				},
 				cancel: function () {
@@ -284,11 +284,11 @@ jQuery(document).ready(function($){
 	}
 
 	function ShowFreeCoins(){
-		socket.emit('freecoins');
+		$.socket.emit('freecoins');
 	}
 
 	function ShowCoinflipHistory(){
-		socket.emit('coinflip history');
+		$.socket.emit('coinflip history');
 	}
 
 	/*   _____       _      ______ _ _       
@@ -333,16 +333,16 @@ jQuery(document).ready(function($){
 			return false;
 		}
 
-		socket.emit('place bet', coins);
+		$.socket.emit('place bet', coins);
 	});
 
-	socket.on('show place bet', function(Avatar){
-		socket.emit('reload coins');
+	$.socket.on('show place bet', function(Avatar){
+		$.socket.emit('reload coins');
 		var output = '<div class="col-xs-6 col-md-3"><div class="thumbnail"><div class="coin-flip-cont"><div class="coin"><div class="front" style="background: url(' + Avatar + '); background-size: 100%;"></div></div></div><div class="caption"><div class="input-group input-group-sm"><input type="text" class="form-control" placeholder="Coins" aria-describedby="basic-addon2"></div><button type="button" class="btn btn-info btn-md PlaceBet">Place Bet <span class="glyphicon glyphicon-fire"></span></button></div></div></div>';
 		$("#PlaceBets").html(output);
 	});
 
-	socket.on('flip', function(bet){
+	$.socket.on('flip', function(bet){
 		$(".thumbnail").each(function(index,item) {
 
 			if ($(item).find(".JoinBet").attr("data-BetID") == bet.id){
@@ -371,7 +371,7 @@ jQuery(document).ready(function($){
 								SendSuccess("Won Bet", "<span class='glyphicon glyphicon-bullhorn'></span> Congratulations, you won the bet! <span class='glyphicon glyphicon-thumbs-up'></span>");
 								var audio = new Audio('snd/win.mp3');
 								audio.play();
-								socket.emit('reload coins');
+								$.socket.emit('reload coins');
 							}
 							setTimeout(function(){
 								$(item).parent().remove();
@@ -385,14 +385,14 @@ jQuery(document).ready(function($){
 		}, 400);
 	});
 
-	socket.on('display bet', function(bet){
+	$.socket.on('display bet', function(bet){
 		$(GetBetHTML(bet)).appendTo("#Bets").hide().fadeIn().find('.JoinBet').click(function(){
 			var BetID = $(this).attr("data-BetID");
 			var ConfirmMSG = "Ready? ";
 
 			if ($(this).text() != ConfirmMSG){
 				$(this).text(ConfirmMSG).append('<span class="glyphicon glyphicon-ok-sign"></span>').click(function(){
-					socket.emit('join bet', BetID);
+					$.socket.emit('join bet', BetID);
 				});
 			}
 		});
@@ -470,7 +470,7 @@ jQuery(document).ready(function($){
 			return false;
 		}
 
-		socket.emit('deposit', cart);
+		$.socket.emit('deposit', cart);
 
 		cart = [];
 		displayCart();
@@ -611,7 +611,7 @@ jQuery(document).ready(function($){
 				return $message_input.val();
 			};
 
-			socket.on('message', function(msg){
+			$.socket.on('message', function(msg){
 				$messages = $('.messages');
 				message_side = message_side === 'left' ? 'right' : 'left';
 
@@ -647,7 +647,7 @@ jQuery(document).ready(function($){
 
 				$('.message_input').val('');
 
-				socket.emit('message', text);
+				$.socket.emit('message', text);
 			}
 
 			$('.send_message').click(function (e) {
