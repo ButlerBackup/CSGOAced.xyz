@@ -27,7 +27,7 @@
 					</thead>
 				<tbody>
 					<?php
-						$sth = $conn->prepare("SELECT ReferedUsersHistory.ID AS ID, Users.Name AS Name, ReferedUsersHistory.ReferalCode AS Code, ReferedUsersHistory.RegistrationTimestamp AS Date FROM ReferedUsersHistory INNER JOIN Users ON ReferedUsersHistory.ReferalID = Users.ID AND Users.ID = :UID ORDER BY ReferedUsersHistory.ID;");
+						$sth = $conn->prepare("SELECT ReferedUsersHistory.ID AS ID, (SELECT Name FROM Users WHERE ID = (SELECT UserID FROM ReferedUsersHistory WHERE ReferedUsersHistory.ReferalID = :UID)) AS Name, ReferedUsersHistory.ReferalCode AS Code, ReferedUsersHistory.RegistrationTimestamp AS Date FROM ReferedUsersHistory INNER JOIN Users ON ReferedUsersHistory.ReferalID = Users.ID AND Users.ID = :UID ORDER BY ReferedUsersHistory.ID;");
 						$sth->execute(array(':UID' => $_SESSION['UID']));
 						$referals = $sth->fetchAll();
 
