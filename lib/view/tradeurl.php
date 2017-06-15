@@ -28,7 +28,7 @@
 					</thead>
 				<tbody>
 					<?php
-						$sth = $conn->prepare("SELECT Transactions.ID AS ID, TransactionItems.SkinMarketName AS Name, Transactions.Type AS Type, TransactionItems.Coins AS Ammount, TransactionState.Name AS Status, Transactions.OfferTimestamp AS Date FROM TransactionItems INNER JOIN Transactions INNER JOIN Users INNER JOIN TransactionState ON Users.ID = Transactions.UID AND TransactionItems.TransactionID = Transactions.ID AND Transactions.Status = TransactionState.ID ORDER BY Transactions.OfferTimestamp DESC;");
+						$sth = $conn->prepare("SELECT Transactions.ID AS ID, TransactionItems.SkinMarketName AS Name, Transactions.Type AS Type, TransactionItems.Coins AS Ammount, TransactionState.Name AS Status, Transactions.OfferTimestamp AS Date FROM TransactionItems INNER JOIN Transactions INNER JOIN Users INNER JOIN TransactionState ON Users.ID = :UID AND Users.ID = Transactions.UID AND TransactionItems.TransactionID = Transactions.ID AND Transactions.Status = TransactionState.ID ORDER BY Transactions.OfferTimestamp DESC;");
 						$sth->execute(array(':UID' => $_SESSION['UID']));
 						$referals = $sth->fetchAll();
 
