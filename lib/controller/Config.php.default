@@ -20,7 +20,7 @@ $Link = (object) array( 'Website' => 'https://www.csgoaced.xyz/',
 
 $Page = (object) array( 'Home' => 'home',
 						'Deposit' => 'deposit',
-						'Widthraw' => 'widthraw',
+						'Withraw' => 'withraw',
 						'Admin' => 'admin',
 						'FreeCoins' => 'freecoins',
 						'TradeURL' => 'tradeurl',

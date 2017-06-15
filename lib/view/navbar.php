@@ -18,8 +18,8 @@
 				<li <?php if ($GetPage == $Page->Deposit){ ?> class="active" <?php } ?>>
 					<a href="<?php echo $Link->Website . '?p=' . $Page->Deposit; ?>">Deposit</a>
 				</li>
-				<li <?php if ($GetPage == $Page->Widthraw){ ?> class="active" <?php } ?>>
-					<a href="<?php echo $Link->Website . '?p=' . $Page->Widthraw; ?>">Widthraw</a>
+				<li <?php if ($GetPage == $Page->Withraw){ ?> class="active" <?php } ?>>
+					<a href="<?php echo $Link->Website . '?p=' . $Page->Withraw; ?>">Withraw</a>
 				</li> 
 				<?php if(!isset($_SESSION['UID'])) { ?>
 				<li>
