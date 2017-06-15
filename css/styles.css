@@ -50,7 +50,7 @@ main{
 	margin-left: 10px;
 }
 
-.update-inventory{
+.update-inventory, .update-bot-inventory{
 	margin-bottom: 16px;
 }
 

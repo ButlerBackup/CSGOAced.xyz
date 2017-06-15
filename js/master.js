@@ -411,6 +411,8 @@ jQuery(document).ready(function($){
 				| |                    
 				|_|              */
 
+	$.page = "";
+
 	$.GetInventory = function(){
 		$("#inventory").load("index.php?p=deposit&c=&m=", function(){
 
@@ -431,7 +433,25 @@ jQuery(document).ready(function($){
 		});
 	}
 
-	$.GetInventory();
+	$.GetBotInventory = function(){
+		$("#inventory").load("index.php?p=withraw&c=&m=", function(){
+
+			cart = [];
+			InventoryList = [];
+
+			$('button', $('#inventory')).each(function () {
+				var market_name = $(this).attr("data-name");
+				var icon_url = $(this).attr("data-icon");
+				var assetID = $(this).attr("data-assetID");
+				var classID = $(this).attr("data-classID");
+				var price = Number($(this).attr("data-price"));
+				
+				addToInventory(market_name, icon_url, assetID, classID, price);
+			});
+
+			displayCart();
+		});
+	}
 
 	function addToInventory(market_name, icon_url, assetID, classID, price){
 		var item = new Item(market_name, icon_url, assetID, classID, price)
@@ -474,7 +494,20 @@ jQuery(document).ready(function($){
 
 		cart = [];
 		displayCart();
-		
+	});
+
+	$("#depositBox").on("click", ".withraw" , function(event){
+		event.preventDefault();
+
+		if (cart.length == 0){
+			SendAlert('No selected items', 'Add items to your cart!');
+			return false;
+		}
+
+		$.socket.emit('withraw', cart);
+
+		cart = [];
+		displayCart();
 	});
 
 	$("#depositBox").on("click", ".clearCart" , function(event){
@@ -505,6 +538,15 @@ jQuery(document).ready(function($){
 		});
 	});
 
+	$(".update-bot-inventory").on("click", function(event){
+		$.ajax({
+			url: "index.php?updateinventory=&c=&m=&bot="
+		}).done(function() {
+			$.GetBotInventory();
+			SendSuccess("Inventory", "Bot inventory successfully updated!");
+		});
+	});
+
 	function displayCart(){
 		var output = "";
 
@@ -513,12 +555,12 @@ jQuery(document).ready(function($){
 		}
 
 		$("#showCart").html(output);
-		$("#showCoins").html(getCoins() + " Coins");
+		$("#showCoins").html(getCoins());
 		
 		var output = "";
 
 		for (var i in InventoryList){
-			output += '<div class="col-xs-6 col-md-3"><div class="thumbnail"><img src="' + InventoryList[i].icon_url + '" alt="' + InventoryList[i].market_name + '"><h5>' + InventoryList[i].price + '</h5> <div class="caption"> <p>' + InventoryList[i].market_name + '</p>	<button type="button" class="btn btn-info btn-md addCart" data-name="' + InventoryList[i].market_name + '" data-icon="'+InventoryList[i].icon_url+'" data-price="'+InventoryList[i].price+'" data-assetID="' + InventoryList[i].assetID + '" data-classID="' + InventoryList[i].classID + '">Deposit <span class="glyphicon glyphicon-shopping-cart"></span></button></div></div></div>';
+			output += '<div class="col-xs-6 col-md-3"><div class="thumbnail"><img src="' + InventoryList[i].icon_url + '" alt="' + InventoryList[i].market_name + '"><h5>' + InventoryList[i].price + '</h5> <div class="caption"> <p>' + InventoryList[i].market_name + '</p>	<button type="button" class="btn btn-info btn-md addCart" data-name="' + InventoryList[i].market_name + '" data-icon="'+InventoryList[i].icon_url+'" data-price="'+InventoryList[i].price+'" data-assetID="' + InventoryList[i].assetID + '" data-classID="' + InventoryList[i].classID + '">' + (($.page == "deposit") ? ("Deposit"): ("Withraw")) + ' <span class="glyphicon glyphicon-shopping-cart"></span></button></div></div></div>';
 		}
 		
 		$("#inventory").html(output);

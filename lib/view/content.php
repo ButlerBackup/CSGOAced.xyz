@@ -24,7 +24,9 @@
 					case $Page->Deposit:
 						require ('lib/view/deposit.php');
 						break;
-					
+					case $Page->Withraw:
+						require ('lib/view/withraw.php');
+						break;
 					case $Page->Home:
 					default:
 						require ('lib/view/coinflip.php');

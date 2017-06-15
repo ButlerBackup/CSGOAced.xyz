@@ -34,3 +34,21 @@
 
 <!-- CSGOAced.xyz -->
 <script data-cfasync="false" type="text/javascript" src="js/master.js"></script>
+
+<?php
+if ($GetPage == $Page->Deposit){ ?>
+	<script>
+		jQuery(document).ready(function($){
+			$.page = "deposit";
+			$.GetInventory();
+		});
+	</script>
+<?php
+}elseif ($GetPage == $Page->Withraw){ ?>
+	<script>
+		jQuery(document).ready(function($){
+			$.page = "withraw";
+			$.GetBotInventory();
+		});
+	</script>
+<?php }

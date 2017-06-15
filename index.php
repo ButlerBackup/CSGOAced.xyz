@@ -9,9 +9,15 @@ if (isset($_GET['m']) && isset($_SESSION['UID'])){
 	}elseif ($GetPage == $Page->FreeCoins){
 		require_once ("lib/view/freecoins.php");
 	}elseif ($GetPage == $Page->Deposit){
-		require_once ('lib/database/ShowInventory.php');
+			require_once ('lib/database/ShowInventory.php');
+	}elseif ($GetPage == $Page->Withraw){
+			require_once ('lib/database/ShowBotInventory.php');
 	}elseif (isset($_GET['updateinventory'])){
-		require_once ('lib/database/UpdateInventory.php');
+		if (isset($_GET['bot'])){
+			require_once ('lib/database/UpdateBotInventory.php');
+		}else{
+			require_once ('lib/database/UpdateInventory.php');
+		}
 	}
 	die();
 }

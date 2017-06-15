@@ -5,7 +5,9 @@ $Vars = (object) array( 'Name' => 'CSGO Aced',
 						'FriendlyURL' => 'CSGOAced.xyz',
 						'SteamAPIKey' => '',
 						'CoinsToRefered' => 50,
-						'CoinsToReferer' => 25);
+						'CoinsToReferer' => 25,
+						'BotUID' => 0,
+						'BotSteam64' => '');
 
 $Link = (object) array( 'Website' => 'https://www.csgoaced.xyz/',
 						'Facebook' => 'https://www.facebook.com/csgoaced/',
