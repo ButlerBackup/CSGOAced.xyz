@@ -1,10 +1,6 @@
 <div class="col-sm-4">
 	<div id="Wallet" class="col-xs-12 col-md-12 thumbnail">
 		<h3><span id="Coins">0</span> Coins</h3>
-		<div class="caption">
-			<button class="btn btn-success btn-md"><span class="glyphicon glyphicon-share-alt"></span> Deposit</button>
-			<button class="btn btn-primary btn-md">Widthraw <span class="glyphicon glyphicon-shopping-cart"></span></button>
-		</div>
 	</div>
 	<div class="chat_window">
 		<div class="top_menu">
