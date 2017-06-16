@@ -10,7 +10,7 @@ if (isset($_GET['m']) && isset($_SESSION['UID'])){
 		require_once ("lib/view/freecoins.php");
 	}elseif ($GetPage == $Page->Deposit){
 			require_once ('lib/database/ShowInventory.php');
-	}elseif ($GetPage == $Page->Withraw){
+	}elseif ($GetPage == $Page->Withdraw){
 			require_once ('lib/database/ShowBotInventory.php');
 	}elseif (isset($_GET['updateinventory'])){
 		if (isset($_GET['bot'])){

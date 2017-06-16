@@ -44,10 +44,10 @@ if ($GetPage == $Page->Deposit){ ?>
 		});
 	</script>
 <?php
-}elseif ($GetPage == $Page->Withraw){ ?>
+}elseif ($GetPage == $Page->Withdraw){ ?>
 	<script>
 		jQuery(document).ready(function($){
-			$.page = "withraw";
+			$.page = "withdraw";
 			$.GetBotInventory();
 		});
 	</script>

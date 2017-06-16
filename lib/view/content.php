@@ -24,8 +24,8 @@
 					case $Page->Deposit:
 						require ('lib/view/deposit.php');
 						break;
-					case $Page->Withraw:
-						require ('lib/view/withraw.php');
+					case $Page->Withdraw:
+						require ('lib/view/withdraw.php');
 						break;
 					case $Page->Home:
 					default:

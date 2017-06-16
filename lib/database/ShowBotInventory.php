@@ -12,7 +12,7 @@ foreach ($skins as $skin) {
 				<h5><?php echo $skin['BuyPrice'];?></h5>
 				<div class="caption">
 					<p><?php echo $skin['MarketName'];?></p>
-					<button type="button" class="btn btn-info btn-md addCart" data-icon="https://steamcommunity-a.akamaihd.net/economy/image/<?php echo $skin['IconURL'];?>/500fx300f" data-name="<?php echo $skin['MarketName'];?>" data-price="<?php echo $skin['SellPrice'];?>" data-assetID="<?php echo $skin['AssetID'];?>" data-classID="<?php echo $skin['ClassID'];?>">Withraw <span class="glyphicon glyphicon-shopping-cart"></span></button>
+					<button type="button" class="btn btn-info btn-md addCart" data-icon="https://steamcommunity-a.akamaihd.net/economy/image/<?php echo $skin['IconURL'];?>/500fx300f" data-name="<?php echo $skin['MarketName'];?>" data-price="<?php echo $skin['SellPrice'];?>" data-assetID="<?php echo $skin['AssetID'];?>" data-classID="<?php echo $skin['ClassID'];?>">Withdraw <span class="glyphicon glyphicon-shopping-cart"></span></button>
 				</div>
 			</div>
 		</div>
