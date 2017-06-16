@@ -19,7 +19,7 @@
 					<a href="<?php echo $Link->Website . '?p=' . $Page->Deposit; ?>">Deposit</a>
 				</li>
 				<li <?php if ($GetPage == $Page->Withdraw){ ?> class="active" <?php } ?>>
-					<a href="<?php echo $Link->Website . '?p=' . $Page->Withdraw; ?>">Withraw</a>
+					<a href="<?php echo $Link->Website . '?p=' . $Page->Withdraw; ?>">Withdraw</a>
 				</li> 
 				<?php if(!isset($_SESSION['UID'])) { ?>
 				<li>
