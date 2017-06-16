@@ -434,7 +434,7 @@ jQuery(document).ready(function($){
 	}
 
 	$.GetBotInventory = function(){
-		$("#inventory").load("index.php?p=withraw&c=&m=", function(){
+		$("#inventory").load("index.php?p=withdraw&c=&m=", function(){
 
 			cart = [];
 			InventoryList = [];
