@@ -496,7 +496,7 @@ jQuery(document).ready(function($){
 		displayCart();
 	});
 
-	$("#depositBox").on("click", ".withraw" , function(event){
+	$("#depositBox").on("click", ".withdraw" , function(event){
 		event.preventDefault();
 
 		if (cart.length == 0){
@@ -504,7 +504,7 @@ jQuery(document).ready(function($){
 			return false;
 		}
 
-		$.socket.emit('withraw', cart);
+		$.socket.emit('withdraw', cart);
 
 		cart = [];
 		displayCart();
