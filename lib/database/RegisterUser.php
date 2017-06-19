@@ -51,28 +51,21 @@ if(!isset($_SESSION['UID'])){
 		$ReferalID = $sth->fetchAll();
 
 		if ($ReferalID != NULL){
-			$sth = $conn->prepare("SELECT Coins FROM Users where ID = :ID");
-			$sth->execute(array(':ID' => $ReferalID[0]['ID']));
-			$RefCoins = $sth->fetchAll();
+			$sth = $conn->prepare("INSERT INTO ReferedUsersHistory (UserID, ReferalID, ReferalCode) VALUES (:UID, :ReferalID, :ReferalCode);");
+			$sth->bindParam(':UID', $_SESSION['UID']);
+			$sth->bindParam(':ReferalID', $ReferalID[0]['ID']);
+			$sth->bindParam(':ReferalCode', $_SESSION['referal']);
+			$sth->execute();
 
-			if ($RefCoins != NULL){
-				$sth = $conn->prepare("INSERT INTO ReferedUsersHistory (UserID, ReferalID, ReferalCode) VALUES (:UID, :ReferalID, :ReferalCode);");
-				$sth->bindParam(':UID', $_SESSION['UID']);
-				$sth->bindParam(':ReferalID', $ReferalID[0]['ID']);
-				$sth->bindParam(':ReferalCode', $_SESSION['referal']);
-				$sth->execute();
+			$sth = $conn->prepare("UPDATE Users SET Coins = (SELECT (Select Coins) + :Coins) WHERE ID = :ID;");
+			$sth->bindParam(':Coins', $Vars->CoinsToReferer);
+			$sth->bindParam(':ID', $ReferalID[0]['ID']);
+			$sth->execute();
 
-				$ReferalWallet = $RefCoins[0][0] + $Vars->CoinsToReferer;
-				$sth = $conn->prepare("UPDATE Users SET Coins = :Coins WHERE ID = :ID;");
-				$sth->bindParam(':Coins', $ReferalWallet);
-				$sth->bindParam(':ID', $ReferalID[0]['ID']);
-				$sth->execute();
-
-				$sth = $conn->prepare("UPDATE Users SET Coins = :Coins WHERE ID = :ID;");
-				$sth->bindParam(':Coins', $Vars->CoinsToRefered);
-				$sth->bindParam(':ID', $_SESSION['UID']);
-				$sth->execute();
-			}
+			$sth = $conn->prepare("UPDATE Users SET Coins = (SELECT (Select Coins) + :Coins) WHERE ID = :ID;");
+			$sth->bindParam(':Coins', $Vars->CoinsToRefered);
+			$sth->bindParam(':ID', $_SESSION['UID']);
+			$sth->execute();
 		}
 	}
 
