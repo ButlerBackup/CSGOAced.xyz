@@ -15,7 +15,7 @@
 				<span class="glyphicon glyphicon-bullhorn"></span> Wanna be a <strong>beta tester</strong>? Contact us via our <a href="https://discord.gg/uzjBqxX"><strong>Discord Server</strong></a>! <span class="glyphicon glyphicon-thumbs-up"></span>
 			</div>
 			<script>
-				var countDownDate = new Date("Jun 23, 2017 00:00:00").getTime();
+				var countDownDate = new Date("Jun 24, 2017 12:00:00").getTime();
 
 				var x = setInterval(function() {
 					var now = new Date().getTime();
