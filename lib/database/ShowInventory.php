@@ -1,6 +1,6 @@
 <?php
 
-$sth = $conn->prepare("SELECT Skins.MarketName, Skins.Name, Skins.IconURL, Skins.Color, SkinPrices.BuyPrice, SkinPrices.SellPrice, Inventories.ClassID, Inventories.AssetID FROM Skins INNER JOIN SkinPrices INNER JOIN Inventories ON Inventories.UserID=:UID AND Skins.MarketName=SkinPrices.SkinMarketName and Skins.MarketName=Inventories.SkinMarketName ORDER BY SkinPrices.BuyPrice DESC;");
+$sth = $conn->prepare("SELECT Skins.MarketName, Skins.Name, Skins.IconURL, Skins.Color, SkinPrices.BuyPrice, SkinPrices.SellPrice, Inventories.ClassID, Inventories.AssetID FROM Skins INNER JOIN SkinPrices INNER JOIN Inventories ON SkinPrices.BuyPrice > 50 AND Inventories.UserID=:UID AND Skins.MarketName=SkinPrices.SkinMarketName and Skins.MarketName=Inventories.SkinMarketName ORDER BY SkinPrices.BuyPrice DESC;");
 $sth->execute(array(':UID' => $_SESSION['UID']));
 $skins = $sth->fetchAll();
 
