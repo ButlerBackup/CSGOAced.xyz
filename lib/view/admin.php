@@ -14,14 +14,6 @@
 			<div class="page-header">
 				<h2><span class="glyphicon glyphicon-wrench"> Options</h2>
 			</div>
-			<button class="btn btn-warning btn-lg refresh_prices"><span class="glyphicon glyphicon-refresh"></span> Refresh Prices</button>
-			<script>
-			jQuery(document).ready(function($){
-				$('.refresh_prices').on('click', function () {
-					$.RefreshPrices();
-				});
-			});
-			</script>
 		</div>
 	</div>
 </div>

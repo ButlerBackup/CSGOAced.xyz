@@ -250,10 +250,6 @@ jQuery(document).ready(function($){
 		});
 	}
 
-	$.RefreshPrices = function(){
-		$.socket.emit('refresh prices');
-	}
-
 	function ShowTradeURL(){
 		$.confirm({
 			title: '',
