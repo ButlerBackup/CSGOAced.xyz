@@ -1,7 +1,9 @@
 <div class="col-sm-4">
-	<div id="Wallet" class="col-xs-12 col-md-12 thumbnail">
-		<h3><span id="Coins">0</span> Coins</h3>
-	</div>
+	<?php if(isset($_SESSION['UID'])) { ?>
+		<div id="Wallet" class="col-xs-12 col-md-12 thumbnail">
+			<h3><span id="Coins">0</span> Coins</h3>
+		</div>
+	<?php } ?>
 	<div class="chat_window">
 		<div class="top_menu">
 			<div class="buttons">
