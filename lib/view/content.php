@@ -6,13 +6,9 @@
 
 	<div class="container">
 		<div class="row">
-			<div class="alert alert-warning fade in">
+			<div class="alert alert-info fade in">
 				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 				<span class="glyphicon glyphicon-time"></span> Officially Released in: <strong id="countdown"></strong>
-			</div>
-			<div class="alert alert-warning fade in">
-				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-				<span class="glyphicon glyphicon-bullhorn"></span> Wanna be a <strong>beta tester</strong>? Contact us via our <a href="https://discord.gg/uzjBqxX"><strong>Discord Server</strong></a>! <span class="glyphicon glyphicon-thumbs-up"></span>
 			</div>
 			<script>
 				var countDownDate = new Date("Jun 24, 2017 12:00:00").getTime();
@@ -31,7 +27,9 @@
 
 					if (distance < 0) {
 						clearInterval(x);
-						document.getElementById("countdown").innerHTML = "EXPIRED";
+						document.getElementById("countdown").parentElement.classList.remove('alert-info');
+						document.getElementById("countdown").parentElement.classList.add('alert-success');
+						document.getElementById("countdown").innerHTML = "Released!";
 					}
 				}, 1000);
 			</script>
