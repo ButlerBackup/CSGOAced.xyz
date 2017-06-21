@@ -648,7 +648,7 @@ jQuery(document).ready(function($){
 			return this;
 		};
 		$(function () {
-			var getMessageText, message_side, sendMessage;
+			var getMessageText, message_side;
 			message_side = 'right';
 
 			getMessageText = function () {
@@ -661,8 +661,8 @@ jQuery(document).ready(function($){
 				$messages = $('.messages');
 				message_side = message_side === 'left' ? 'right' : 'left';
 
-				msg.text = msg.text.replace(new RegExp(":aced:", 'g'), '<img src="https://www.csgoaced.xyz/img/emotes/aced.png">')
-				msg.text = msg.text.replace(new RegExp(":kappa:", 'g'), '<img src="https://www.csgoaced.xyz/img/emotes/kappa.png">')
+				msg.text = msg.text.replace(new RegExp(":aced:", 'g'), '<img src="https://www.csgoaced.xyz/img/emotes/aced.png">');
+				msg.text = msg.text.replace(new RegExp(":kappa:", 'g'), '<img src="https://www.csgoaced.xyz/img/emotes/kappa.png">');
 				msg.text = msg.text.replace(new RegExp(":rip:", 'g'), '<img src="https://www.csgoaced.xyz/img/emotes/rip.png">');
 				msg.text = msg.text.replace(new RegExp(":ezskins:", 'g'), '<img src="https://www.csgoaced.xyz/img/emotes/ezskins.png">');
 				msg.text = msg.text.replace(new RegExp(":hype:", 'g'), '<img src="https://www.csgoaced.xyz/img/emotes/hype.png">');
@@ -698,6 +698,24 @@ jQuery(document).ready(function($){
 
 			$('.send_message').click(function (e) {
 				return sendMessage(getMessageText());
+			});
+
+			$('.send_emoji').click(function (e) {
+				$.confirm({
+					title: '',
+					content: 'url:index.php?p=emojis&m=',
+					closeIcon: true,
+					closeIconClass: 'fa fa-close',
+					backgroundDismiss: true,
+					buttons: {
+						close: {
+							btnClass: 'btn-red',
+							keys: ['enter'],
+							action: function(){
+							}
+						}
+					}
+				});
 			});
 
 			$('.message_input').keyup(function (e) {

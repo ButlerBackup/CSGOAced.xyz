@@ -25,6 +25,7 @@ $Page = (object) array( 'Home' => 'home',
 						'Withdraw' => 'withdraw',
 						'Admin' => 'admin',
 						'FreeCoins' => 'freecoins',
+						'Emojis' => 'emojis',
 						'TradeURL' => 'tradeurl',
 						'UpdateInventory' => 'updateinventory',
 						'Logout' => 'logout');

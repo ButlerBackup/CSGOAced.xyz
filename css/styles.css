@@ -398,17 +398,30 @@ main{
 	transition: all 0.2s linear;
 	text-align: center;
 	float: right;
-	margin-right: 50px;
 }
-.bottom_wrapper .send_message:hover {
+.bottom_wrapper .send_emoji {
+	width: 50px;
+	height: 50px;
+	display: inline-block;
+	border-radius: 50px;
+	background-color: #a3d063;
+	border: 2px solid #a3d063;
+	color: #fff;
+	cursor: pointer;
+	transition: all 0.2s linear;
+	text-align: center;
+	float: right;
+	margin-right: 10px;
+}
+.bottom_wrapper .send_message:hover, .bottom_wrapper .send_emoji:hover {
 	color: #a3d063;
 	background-color: #fff;
 }
-.bottom_wrapper .send_message .text {
+.bottom_wrapper .send_message .text, .bottom_wrapper .send_emoji .text {
 	font-size: 18px;
 	font-weight: 300;
 	display: inline-block;
-	line-height: 48px;
+	line-height: 46px;
 }
 
 .message_template {
