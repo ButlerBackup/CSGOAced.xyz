@@ -113,6 +113,38 @@ jQuery(document).ready(function($){
 		});
 	}
 
+	var emote = function(code, file){
+		this.code = code;
+		this.url = '<img src="https://www.csgoaced.xyz/img/emotes/' + file + '">';
+	}
+
+	$.emotes = [];
+
+	$.emotes.push(new emote(":aced:", "aced.png"));
+	$.emotes.push(new emote(":kappa:", "kappa.png"));
+	$.emotes.push(new emote(":rip:", "rip.png"));
+	$.emotes.push(new emote(":ezskins:", "ezskins.png"));
+	$.emotes.push(new emote(":hype:", "hype.png"));
+	$.emotes.push(new emote(":money:", "money.png"));
+	$.emotes.push(new emote(":snipe:", "snipe.png"));
+	$.emotes.push(new emote(":gg:", "gg.png"));
+	$.emotes.push(new emote(":gaben:", "gaben.png"));
+	$.emotes.push(new emote(":pigeon:", "pigeon.png"));
+	$.emotes.push(new emote(":trump:", "trump.png"));
+	$.emotes.push(new emote(":wall:", "wall.png"));
+	$.emotes.push(new emote(":pogchamp:", "pogchamp.png"));
+	$.emotes.push(new emote(":feelsbadman:", "feelsbadman.png"));
+	$.emotes.push(new emote(":heyguys:", "heyguys.png"));
+	$.emotes.push(new emote(":pepepls:", "pepepls.gif"));
+	$.emotes.push(new emote(":4head:", "4head.png"));
+	$.emotes.push(new emote(":babyrage:", "babyrage.png"));
+	$.emotes.push(new emote(":biblethump:", "biblethump.png"));
+	$.emotes.push(new emote(":datsheffy:", "datsheffy.png"));
+	$.emotes.push(new emote(":dansgame:", "dansgame.png"));
+	$.emotes.push(new emote(":kappapride:", "kappapride.png"));
+	$.emotes.push(new emote(":rareparrot:", "rareparrot.gif"));
+	$.emotes.push(new emote(":michaelpls:", "michaelpls.gif"));
+
 	/*
 	 _   _             _                
 	| \ | |           | |               
@@ -661,18 +693,9 @@ jQuery(document).ready(function($){
 				$messages = $('.messages');
 				message_side = message_side === 'left' ? 'right' : 'left';
 
-				msg.text = msg.text.replace(new RegExp(":aced:", 'g'), '<img src="https://www.csgoaced.xyz/img/emotes/aced.png">');
-				msg.text = msg.text.replace(new RegExp(":kappa:", 'g'), '<img src="https://www.csgoaced.xyz/img/emotes/kappa.png">');
-				msg.text = msg.text.replace(new RegExp(":rip:", 'g'), '<img src="https://www.csgoaced.xyz/img/emotes/rip.png">');
-				msg.text = msg.text.replace(new RegExp(":ezskins:", 'g'), '<img src="https://www.csgoaced.xyz/img/emotes/ezskins.png">');
-				msg.text = msg.text.replace(new RegExp(":hype:", 'g'), '<img src="https://www.csgoaced.xyz/img/emotes/hype.png">');
-				msg.text = msg.text.replace(new RegExp(":money:", 'g'), '<img src="https://www.csgoaced.xyz/img/emotes/money.png">');
-				msg.text = msg.text.replace(new RegExp(":snipe:", 'g'), '<img src="https://www.csgoaced.xyz/img/emotes/snipe.png">');
-				msg.text = msg.text.replace(new RegExp(":gg:", 'g'), '<img src="https://www.csgoaced.xyz/img/emotes/gg.png">');
-				msg.text = msg.text.replace(new RegExp(":gaben:", 'g'), '<img src="https://www.csgoaced.xyz/img/emotes/gaben.png">');
-				msg.text = msg.text.replace(new RegExp(":pigeon:", 'g'), '<img src="https://www.csgoaced.xyz/img/emotes/pigeon.png">');
-				msg.text = msg.text.replace(new RegExp(":trump:", 'g'), '<img src="https://www.csgoaced.xyz/img/emotes/trump.png">');
-				msg.text = msg.text.replace(new RegExp(":wall:", 'g'), '<img src="https://www.csgoaced.xyz/img/emotes/wall.png">');
+				$.emotes.forEach(function(emote) {
+					msg.text = msg.text.replace(new RegExp(emote.code, 'g'), emote.url);
+				}, this);
 
 				message = new Message({
 					text: msg.text,
