@@ -3,7 +3,7 @@
 </div>
 
 <div class="col-sm-4">
-	<a class="btn btn-info btn-md refresh-inventory"><span class="glyphicon glyphicon-refresh"></span></a>
+	<a class="btn btn-info btn-md refresh-inventory"><span class="glyphicon glyphicon-refresh"></span> Refresh Inventory</a>
 	<a class="btn btn-info btn-md update-inventory"><span class="glyphicon glyphicon-repeat"></span> Reload Inventory</a>
 	<div id="depositBox" class="col-xs-12 col-md-12 thumbnail">
 		<h3><span id="showCoins">0</span> Coins</h3>
