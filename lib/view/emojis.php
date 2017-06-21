@@ -4,33 +4,34 @@
 			<div class="page-header">
 				<h3><i class="fa fa-smile-o fa-lg" aria-hidden="true"></i> Emojis!</h3>
 			</div>
-			<table class="table table-hover table-striped table-bordered fixed_headers">
-				<thead>
-					<tr>
-						<th>Emoji</th>
-						<th>Code</th>
+			<div id="Emotes-Table">
+				<table class="table table-hover table-striped table-bordered fixed_headers">
+					<thead>
+						<tr>
+							<th>Emoji</th>
+							<th>Code</th>
 						</tr>
 					</thead>
-				<tbody class="emoji-table">
-					
-				</tbody>
-			</table>
+					<tbody class="emoji-table">
+						
+					</tbody>
+				</table>
+			</div>
 			<script>
-				jQuery(document).ready(function($){
-					$('tr').each(function(){
-						$(this).click(function (e) {
-							$('.message_input').val($('.message_input').val() + ($(this).find('.code').text()));
-						});
-					});
-					output = "";
-					$.emotes.forEach(function(emote) {
-						output += '<tr>' +
-									'<td>' + emote.code + '</td>' +
-									'<td>' + emote.url + '</td>' +
-								'</tr>';
-					}, this);
+				output = "";
+				$.emotes.forEach(function(emote) {
+					output += '<tr>' +
+								'<td class="code">' + emote.code + '</td>' +
+								'<td>' + emote.url + '</td>' +
+							'</tr>';
+				});
 
-					$('.emoji-table').html(output);
+				$('.emoji-table').html(output);
+
+				$('tr').each(function(){
+					$(this).click(function (e) {
+						$('.message_input').val($('.message_input').val() + ($(this).find('.code').text()));
+					});
 				});
 			</script>
 		</div>
