@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="col-xs-12 col-sm-6">
 			<div class="page-header">
-				<h3><span class="glyphicon glyphicon-bell"> Earn Free Coins!</h3>
+				<h3><span class="glyphicon glyphicon-bell"></span> Earn Free Coins!</h3>
 			</div>
 			<p>You and your friend get 25 and 50 coins when you use the link bellow!</p>
 			<label for="refcode">Choose Your Referal URL!</label>
@@ -14,7 +14,7 @@
 		</div>
 		<div class="col-xs-12 col-sm-6">
 			<div class="page-header">
-				<h3><span class="glyphicon glyphicon-gift"> Users You Refered</h3>
+				<h3><span class="glyphicon glyphicon-gift"></span> Users You Refered</h3>
 			</div>
 			<table class="table table-hover table-striped table-bordered fixed_headers">
 				<thead>

@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="col-xs-12 col-sm-4">
 			<div class="page-header">
-				<h3><span class="glyphicon glyphicon-transfer"> Your Trade URL</h3>
+				<h3><span class="glyphicon glyphicon-transfer"></span> Your Trade URL</h3>
 			</div>
 			<form action="" class="formName">
 				<div class="form-group">
@@ -13,7 +13,7 @@
 		</div>
 		<div class="col-xs-12 col-sm-8">
 			<div class="page-header">
-				<h3><span class="glyphicon glyphicon-random"> Your Trade History</h3>
+				<h3><span class="glyphicon glyphicon-random"></span> Your Trade History</h3>
 			</div>
 			<table class="table table-hover table-striped table-bordered fixed_headers">
 				<thead>

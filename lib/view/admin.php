@@ -12,7 +12,7 @@
 		</div>
 		<div class="col-xs-12 col-sm-4">
 			<div class="page-header">
-				<h2><span class="glyphicon glyphicon-wrench"> Options</h2>
+				<h2><span class="glyphicon glyphicon-wrench"></span> Options</h2>
 			</div>
 		</div>
 	</div>

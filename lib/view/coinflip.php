@@ -18,7 +18,7 @@
 			<div class="message_input_wrapper"><input class="message_input" placeholder="Type your message!" /></div>
 			<div class="send_message">
 				<div class="icon"></div>
-				<div class="text">Send  <span class="glyphicon glyphicon-send"></div>
+				<div class="text">Send  <span class="glyphicon glyphicon-send"></span></div>
 			</div>
 		</div>
 	</div>
