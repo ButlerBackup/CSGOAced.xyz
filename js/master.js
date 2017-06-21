@@ -543,6 +543,14 @@ jQuery(document).ready(function($){
 		});
 	});
 
+	$(".refresh-inventory").on("click", function(event){
+		$.GetInventory();
+	});
+
+	$(".refresh-bot-inventory").on("click", function(event){
+		$.GetBotInventory();
+	});
+
 	function displayCart(){
 		var output = "";
 
