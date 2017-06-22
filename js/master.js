@@ -583,6 +583,7 @@ jQuery(document).ready(function($){
 		$.GetBotInventory();
 	});
 
+	var last_coins = 0;
 	function displayCart(){
 		var output = "";
 
@@ -591,8 +592,17 @@ jQuery(document).ready(function($){
 		}
 
 		$("#showCart").html(output);
-		$("#showCoins").html(getCoins());
-		
+
+		$('#showCoins')
+			.prop('number', last_coins)
+			.animateNumber(
+			{
+				number: getCoins()
+			},
+			250
+		);
+		last_coins = getCoins();
+
 		var output = "";
 
 		for (var i in InventoryList){
