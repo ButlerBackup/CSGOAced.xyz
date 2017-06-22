@@ -11,6 +11,22 @@ main{
 	max-height: 509px;
 }
 
+.row-bet-lost{
+	background-color: #ff0000;
+}
+
+.row-bet-won{
+	background-color: #00ff00;
+}
+
+.row-bet-lost:hover{
+	background-color: #ff4444;
+}
+
+.row-bet-won:hover{
+	background-color: #44ff44;
+}
+
 /* Inventory */
 
 .thumbnail h5{

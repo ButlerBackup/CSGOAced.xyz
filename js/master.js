@@ -236,7 +236,7 @@ jQuery(document).ready(function($){
 		var total = 0;
 
 		for (var bet in history){
-			output += '<tr>' +
+			output += '<tr class="row-bet-' + ("" + history[bet].Won).replace('1', 'won').replace('0', 'lost') + '">' +
 						'<td>' + history[bet].ID + '</td>' +
 						'<td>' + history[bet].Ammount + '</td>' +
 						'<td>' + history[bet].CreateTimestamp.replace('T', ' ').replace('.000Z', '') + '</td>' +
@@ -247,7 +247,7 @@ jQuery(document).ready(function($){
 
 		SendSuccess("Coinflip Win History",
 		'<div id="CoinFlipHistory">' +
-			'<table class="table table-hover table-striped table-bordered fixed_headers">' +
+			'<table class="table table-bordered fixed_headers">' +
 				'<thead>' +
 					'<tr>' +
 						'<th>ID</th>' +
