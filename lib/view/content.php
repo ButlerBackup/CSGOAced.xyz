@@ -11,7 +11,7 @@
 				<span class="glyphicon glyphicon-time"></span> Officially Released in: <strong id="countdown"></strong>
 			</div>
 			<script>
-				var countDownDate = new Date("Jun 24, 2017 12:00:00").getTime();
+				var countDownDate = new Date("Jun 24, 2017 00:00:00").getTime();
 
 				var x = setInterval(function() {
 					var now = new Date().getTime();
@@ -29,7 +29,7 @@
 						clearInterval(x);
 						document.getElementById("countdown").parentElement.classList.remove('alert-info');
 						document.getElementById("countdown").parentElement.classList.add('alert-success');
-						document.getElementById("countdown").innerHTML = "Released!";
+						document.getElementById("countdown").parentElement.innerHTML = '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><span class="glyphicon glyphicon-gift"></span> Join Our <a href="https://gleam.io/i8OO9/csgoacedxyz-flip-knife-marble-fade-giveaway" target="_blank"><strong>Flip Knife | Marble Fade (Factory New)</strong> Giveaway!</a> <span class="glyphicon glyphicon-heart-empty"></span>';
 					}
 				}, 1000);
 			</script>
