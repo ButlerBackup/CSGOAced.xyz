@@ -17,7 +17,7 @@
 		<div class="bottom_wrapper clearfix">
 			<div class="message_input_wrapper"><input class="message_input" placeholder="Type your message!" /></div>
 			<div class="send_message">
-				<div class="text">Send  <span class="glyphicon glyphicon-send"></span></div>
+				<div class="text">Send</div>
 			</div>
 			<div class="send_emoji">
 				<div class="text"><i class="fa fa-smile-o fa-lg" aria-hidden="true"></i></div>
