@@ -23,7 +23,7 @@
 				</li> 
 				<?php if(!isset($_SESSION['UID'])) { ?>
 				<li>
-					<a href="<?php echo $Link->Website . '?login';?>"><span class="glyphicon glyphicon-user"></span> Login / Register</a>
+					<a href="<?php echo $Link->Website . '?login';?>"><span class="glyphicon glyphicon-user"></span> Login Via Steam</a>
 				</li>
 				<?php }else{ ?>
 					<li class="dropdown">
