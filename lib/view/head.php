@@ -5,7 +5,7 @@
 <meta property="og:title" content="<?php echo $Vars->Name ;?>" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="<?php echo $Link->Website ;?>" />
-<meta property="og:image" content="<?php echo $Link->Website . "img/logo.png" ;?>" />
+<meta property="og:image" content="<?php echo $Link->Website . "img/thumbnail.png" ;?>" />
 <meta property="og:description" content="<?php echo $Vars->Description; ?>" />
 
 <meta name="description" content="<?php echo $Vars->Description; ?>">
