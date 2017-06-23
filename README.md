@@ -10,3 +10,10 @@
   - Rename Database [Connection File](https://github.com/CSGOAced/CSGOAced.xyz/blob/master/lib/database/Connect.php.default) to Database.php.
   - Install Database with this [Instalation Script](https://gist.github.com/TiagoSeverino/6f5d8daf5e83f0612ed2b8cf64db3be2).
   - Install CSGO Aced [NodeJS Server](https://github.com/CSGOAced/CSGOAced.xyz-NodeServer).
+
+## My Specs
+
+ - Nginx 1.10.3
+ - PHP 7.0
+ - Node 4.7.2
+ - MariaDB 10.1.22
