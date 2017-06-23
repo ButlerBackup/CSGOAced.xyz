@@ -43,11 +43,16 @@ jQuery(document).ready(function($){
 	InventoryList = [];
 
 	$.socket.on('update online', function(UsersOnline){
-		$("#Online").fadeOut();
+		var Last_Online = parseInt($("#Online").text());
 
-		setTimeout(function(){
-			$("#Online").html(UsersOnline).hide().fadeIn();
-		}, 400);
+		$('#Online')
+			.prop('number', Last_Online)
+			.animateNumber(
+			{
+				number: UsersOnline
+			},
+			0
+		);
 	});
 
 	$.socket.on('update coins', function(coins){
