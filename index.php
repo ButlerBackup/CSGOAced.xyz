@@ -12,6 +12,8 @@ if (isset($_GET['m'])){
 			require_once ("lib/view/tradeurl.php");
 		}elseif ($GetPage == $Page->FreeCoins){
 			require_once ("lib/view/freecoins.php");
+		}elseif ($GetPage == $Page->Referal){
+			require_once ("lib/view/referal.php");
 		}elseif ($GetPage == $Page->Deposit){
 				require_once ('lib/database/ShowInventory.php');
 		}elseif ($GetPage == $Page->Withdraw){

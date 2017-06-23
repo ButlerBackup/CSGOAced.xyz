@@ -11,6 +11,46 @@
 				<input type="text" class="form-control ref_code" id="refcode" aria-describedby="basic-addon3" placeholder="<?php if (isset($_GET['c'])){ echo $_GET['c']; } ?>">
 				<span class="input-group-btn"> <button class="btn btn-default refbtn" type="button" data-clipboard-target="#refcode"><span class="glyphicon glyphicon-copy"></span></button> </span>
 			</div>
+			<?php
+				$sth = $conn->prepare("SELECT Count(*) AS IsRefered FROM ReferedUsersHistory WHERE ReferedUsersHistory.UserID = :UID;");
+				$sth->execute(array(':UID' => $_SESSION['UID']));
+				$UsedCode = $sth->fetchAll();
+
+				if ($UsedCode[0]['IsRefered'] == 0){ ?>
+					<br />
+					<label for="referal">Please enter your referral code!</label>
+					<div class="input-group">
+						<input type="text" class="form-control" id="referal" placeholder="Referal">
+							<span class="input-group-btn">
+							<button class="btn btn-default submit-referal" type="button">Confirm!</button>
+						</span>	
+					</div>
+					<script>
+						$('.submit-referal').on('click', function () {
+							var referal = $('#referal').val();
+
+							if (referal.length == 0 || referal.length > 7){
+								return $.SendAlert("Invalid Referal", "Please insert a valid referal code!");
+							}
+
+							$.confirm({
+								title: '',
+								content: 'url:index.php?p=referal&referal=' + referal + '&m=',
+								columnClass: 'medium col-md-12',
+								closeIcon: true,
+								closeIconClass: 'fa fa-close',
+								backgroundDismiss: true,
+								buttons: {
+									formSubmit: {
+										text: 'Ok',
+										btnClass: 'btn-green'
+									}
+								}
+							});
+						});
+					</script>
+				<?php }
+			?>
 		</div>
 		<div class="col-xs-12 col-sm-6">
 			<div class="page-header">

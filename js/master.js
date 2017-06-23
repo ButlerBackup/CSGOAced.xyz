@@ -25,7 +25,7 @@ jQuery(document).ready(function($){
 	});
 
 	RefClipboard.on('success', function(e) {
-		SendSuccess("Text Copied", "Successfully copied text to clipboard!");
+		$.SendSuccess("Text Copied", "Successfully copied text to clipboard!");
 	});
 
 	var Wallet = 0;
@@ -73,7 +73,7 @@ jQuery(document).ready(function($){
 		$.alert(alert);
 	});
 
-	function SendAlert(Title, Content){
+	$.SendAlert = function(Title, Content){
 		$.alert({
 			closeIcon: true,
 			closeIconClass: 'fa fa-close',
@@ -93,7 +93,7 @@ jQuery(document).ready(function($){
 		});
 	}
 
-	function SendSuccess(Title, Content){
+	$.SendSuccess = function(Title, Content){
 		$.alert({
 			closeIcon: true,
 			closeIconClass: 'fa fa-close',
@@ -208,7 +208,7 @@ jQuery(document).ready(function($){
 							return false;
 						}
 						if (RefCode.length > 7){
-							SendAlert('Invalid Referal Code', 'Maximum Referal Code Length is 7 Characters');
+							$.SendAlert('Invalid Referal Code', 'Maximum Referal Code Length is 7 Characters');
 							return false;
 						}
 
@@ -245,7 +245,7 @@ jQuery(document).ready(function($){
 			total += history[bet].Ammount;
 		}
 
-		SendSuccess("Coinflip Win History",
+		$.SendSuccess("Coinflip Win History",
 		'<div id="CoinFlipHistory">' +
 			'<table class="table table-bordered fixed_headers">' +
 				'<thead>' +
@@ -298,7 +298,7 @@ jQuery(document).ready(function($){
 					action: function () {
 						var TradeURL = this.$content.find('.trade_url').val();
 						if(!TradeURL || TradeURL.length > 80 || !(/steamcommunity\.com\/tradeoffer\/new\/\?partner=[0-9]*&token=[a-zA-Z0-9_-]*/i.exec(TradeURL))){
-							SendAlert('Invalid Trade URL', 'Provide a valid Trade URL');
+							$.SendAlert('Invalid Trade URL', 'Provide a valid Trade URL');
 							return false;
 						}
 						$.socket.emit('trade_url', TradeURL);
@@ -347,17 +347,17 @@ jQuery(document).ready(function($){
 		$(this).parent().find('.form-control').val("");
 
 		if (isNaN(coins)){
-			SendAlert("Invalid Number!", "Please enter a valid Number!");
+			$.SendAlert("Invalid Number!", "Please enter a valid Number!");
 			return false;
 		}
 
 		if (coins < 50){
-			SendAlert("Not Enought Coins!", "Minimum ammount is 50 coins!");
+			$.SendAlert("Not Enought Coins!", "Minimum ammount is 50 coins!");
 			return false;
 		}
 
 		if (coins > 100000){
-			SendAlert("Too Many Coins!", "Maximum ammount is 100000 coins!");
+			$.SendAlert("Too Many Coins!", "Maximum ammount is 100000 coins!");
 			return false;
 		}
 
@@ -396,7 +396,7 @@ jQuery(document).ready(function($){
 							$(item).parent().fadeOut();
 
 							if (bet.winnerUID == User.id){
-								SendSuccess("Won Bet", "<span class='glyphicon glyphicon-bullhorn'></span> Congratulations, you won the bet! <span class='glyphicon glyphicon-thumbs-up'></span>");
+								$.SendSuccess("Won Bet", "<span class='glyphicon glyphicon-bullhorn'></span> Congratulations, you won the bet! <span class='glyphicon glyphicon-thumbs-up'></span>");
 								var audio = new Audio('snd/win.mp3');
 								audio.play();
 								$.socket.emit('reload coins');
@@ -514,7 +514,7 @@ jQuery(document).ready(function($){
 		event.preventDefault();
 
 		if (cart.length == 0){
-			SendAlert('No selected items', 'Add items to your cart!');
+			$.SendAlert('No selected items', 'Add items to your cart!');
 			return false;
 		}
 
@@ -528,7 +528,7 @@ jQuery(document).ready(function($){
 		event.preventDefault();
 
 		if (cart.length == 0){
-			SendAlert('No selected items', 'Add items to your cart!');
+			$.SendAlert('No selected items', 'Add items to your cart!');
 			return false;
 		}
 
@@ -562,7 +562,7 @@ jQuery(document).ready(function($){
 			url: "index.php?updateinventory=&c=&m="
 		}).done(function() {
 			$.GetInventory();
-			SendSuccess("Inventory", "Your inventory was successfully updated!");
+			$.SendSuccess("Inventory", "Your inventory was successfully updated!");
 		});
 	});
 
@@ -571,7 +571,7 @@ jQuery(document).ready(function($){
 			url: "index.php?updateinventory=&c=&m=&bot="
 		}).done(function() {
 			$.GetBotInventory();
-			SendSuccess("Inventory", "Bot inventory successfully updated!");
+			$.SendSuccess("Inventory", "Bot inventory successfully updated!");
 		});
 	});
 
@@ -720,7 +720,7 @@ jQuery(document).ready(function($){
 				if (text.trim() === '') { return false; }
 
 				if (text.length > 50){
-					SendAlert("Message Lenght", "You can only write 50 characters");
+					$.SendAlert("Message Lenght", "You can only write 50 characters");
 					return false;
 				}
 
