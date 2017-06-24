@@ -45,8 +45,8 @@ if (isset($_GET['m'])){
 				require_once ('lib/database/ShowInventory.php');
 		}elseif ($GetPage == $Page->Withdraw){
 				require_once ('lib/database/ShowBotInventory.php');
-		}elseif ($GetPage == $Page->Withdraw){
-				require_once ('lib/database/ShowBotInventory.php');
+		}elseif ($GetPage == $Page->Emojis){
+				require_once ('lib/view/emojis.php');
 		}elseif (isset($_GET['updateinventory'])){
 			if (isset($_GET['bot'])){
 				require_once ('lib/database/UpdateBotInventory.php');
