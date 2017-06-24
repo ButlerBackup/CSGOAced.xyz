@@ -14,7 +14,7 @@ $SameIP = $sth->fetchAll();
 
 if ($SameIP == NULL){
 	$sth = $conn->prepare("SELECT ID FROM Users where RefCode = :ReferalCode AND ID != :UID");
-	$sth->execute(array(':ReferalCode' => $_GET['referal'], ':UID', $_SESSION['UID']));
+	$sth->execute(array(':ReferalCode' => strtolower($_GET['referal']), ':UID', $_SESSION['UID']));
 	$ReferalID = $sth->fetchAll();
 
 	if ($ReferalID != NULL){
