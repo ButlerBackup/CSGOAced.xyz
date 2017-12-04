@@ -23,5 +23,5 @@ In addition to the website, we are also using a SteamBot, which can be found [he
     git clone --recursive https://github.com/CSGOAced/CSGOAced.xyz
   - Rename and configure [Config File](https://github.com/CSGOAced/CSGOAced.xyz/blob/master/lib/controller/Config.php.default) to Config.php.
   - Rename and configure Database [Connection File](https://github.com/CSGOAced/CSGOAced.xyz/blob/master/lib/database/Connect.php.default) to Database.php.
-  - Install Database with this [Instalation Script](https://gist.github.com/TiagoSeverino/6f5d8daf5e83f0612ed2b8cf64db3be2).
+  - Configure and Install Database with this [Instalation Script](https://github.com/CSGOAced/CSGOAced.xyz/blob/master/db_installation.sql).
   - Install CSGO Aced [SteamBot](https://github.com/CSGOAced/CSGOAced.xyz-NodeServer).
